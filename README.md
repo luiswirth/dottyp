@@ -5,9 +5,12 @@ replacing the `math.typ` copies that had drifted apart in each project.
 
 ## Use
 
-Point Typst at the package root and import the package:
+A document vendors the library as a submodule and points Typst at it:
 
-    export TYPST_PACKAGE_PATH=$HOME/dev/dottyp/pkg
+```bash
+git submodule add https://github.com/luiswirth/dottyp lib/dottyp
+export TYPST_PACKAGE_PATH=$PWD/lib/dottyp/pkg
+```
 
 ```typst
 #import "@local/dottyp:0.1.0": *
@@ -16,7 +19,14 @@ Point Typst at the package root and import the package:
 The repo is its own package root:
 `pkg/local/dottyp/0.1.0` is a symlink back to the top level,
 which is the directory shape Typst's local package namespace expects.
-Publishing to Typst Universe would replace the env var, not the imports.
+
+Vendoring is what makes a document build anywhere,
+on a machine that has never seen this repo and in CI,
+and what pins each document to the commit of the library it was written against.
+The `build.sh` of a document exports the variable itself,
+so nothing is expected of the environment.
+Picking up a change to the library is `git -C lib/dottyp pull` and a commit in the document.
+Publishing to Typst Universe would replace the submodule and the variable, not the imports.
 
 No name is defined twice across the modules,
 so the glob import is unambiguous and a name means one thing wherever it is read.
@@ -95,8 +105,12 @@ Symbols are taken from `sym`, and only functions from `math`.
 ## Templates
 
 `templates/` holds one starting point per kind of document,
-each a repo of its own once copied out:
-`thesis` for long work split into chapters, a preface, an appendix and a bibliography,
+each a repo of its own once copied out by `templates/new.sh`,
+which vendors the library and makes the first commit:
+
+    ./templates/new.sh paper ~/dev/some-paper
+
+There is `thesis` for long work split into chapters, a preface, an appendix and a bibliography,
 `paper` for a single-file document with a title block,
 `notes` for the dark unnumbered look.
 All three keep the library at arm's length behind `src/setup.typ`,
@@ -104,7 +118,9 @@ which is the one file that imports it and the one place a document says how it d
 The theme is a named variable there, so light and dark are one word apart in any of them.
 
 Each carries a `build.sh` and a `watch.sh` writing to `out/`,
-and the GitHub workflow that deploys the compiled PDF to Pages.
+and the GitHub workflow that deploys the compiled PDF to Pages
+through [typst-deploy](https://github.com/luiswirth/typst-deploy),
+which is told where the vendored library sits and needs nothing else.
 
 ## Test
 

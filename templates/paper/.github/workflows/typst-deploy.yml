@@ -15,4 +15,5 @@ jobs:
     uses: luiswirth/typst-deploy/.github/workflows/typst-deploy.yml@v1
     with:
       entry_file: src/main.typ
+      package_path: lib/dottyp/pkg
       output_name: paper.pdf
