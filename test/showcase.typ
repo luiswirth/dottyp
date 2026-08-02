@@ -100,18 +100,18 @@
   row("linf", $linf(l)(v)$), row("bilf", $bilf(a)(u, v)$),
   row("lagrange", $lagrange(1, mesh)$), row("lagrange0", $lagrange0(1, mesh)$),
   row("discont", $discont(0, mesh)$), row("", []),
-  row("refcell", $refcell$), row("interp", $interp_h u$),
-  row("proj", $proj_h u$), row("", []),
+  row("msize", $msize$), row("refcell", $refcell$),
+  row("interp", $interp_msize u$), row("proj", $proj_msize u$),
 )
 
 = FEEC
 
 #sheet(
-  row("simpcomp", $simpcomp$), row("", []),
+  row("simp", $simp$), row("simpcomp", $simpcomp$),
   row("poly", $poly(r, k, mesh)$), row("polytrim", $polytrim(r, k, mesh)$),
   row("forms", $forms(k, Omega)$), row("l2forms", $l2forms(k, Omega)$),
-  row("hforms", $hforms(k, Omega)$), row("whitney", $whitney_sigma$),
-  row("cochains", $cochains^k (simpcomp)$), row("bdry", $bdry sigma$),
+  row("hforms", $hforms(k, Omega)$), row("whitney", $whitney_simp$),
+  row("cochains", $cochains^k (simpcomp)$), row("bdry", $bdry simp$),
   row("derham", $derham$), row("cohom", $cohom(k)(Omega)$),
 )
 
@@ -124,13 +124,14 @@
   row("distas", $X distas normal(0, 1)$), row("iid", $X_i iid normal(0, 1)$),
   row("normal", $normal(mu, Sigma)$), row("uniform", $uniform(0, 1)$),
   row("bernoulli", $bernoulli(p)$), row("poisson", $poisson(lambda)$),
-  row("gammadist", $gammadist(alpha, beta)$), row("gp", $gp(m, k)$),
-  row("gram", $gram$),
+  row("gammadist", $gammadist(alpha, beta)$), row("gp", $gp(m, kernel)$),
+  row("kernel", $kernel(x, x')$), row("gram", $gram$),
   row("entropy", $entropy[X]$), row("kl", $kl(p || q)$),
   row("mutinfo", $mutinfo(X; Y)$), row("", []),
   row("filtration", $filtration_t$),
   row("quadvar", $quadvar(X)_t$),
-  row("ito", $ito$), row("convdist", $X_n convdist X$),
+  row("ito", $ito$), row("brown", $dif brown_t$),
+  row("noise", $noise_t$), row("convdist", $X_n convdist X$),
   row("convprob", $X_n convprob X$), row("convas", $X_n convas X$),
 )
 

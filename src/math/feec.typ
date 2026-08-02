@@ -1,4 +1,5 @@
-// The simplicial complex. A simplex itself is plain sigma.
+// Simplices and the simplicial complex they form.
+#let simp = sym.sigma
 #let simpcomp = math.cal("T")
 
 // Spaces of polynomial differential forms. poly(r, k, m) is the space of

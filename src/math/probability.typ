@@ -20,9 +20,10 @@
 #let poisson = math.op("Poi")
 #let gammadist = math.op("Gam")
 
-// Gaussian processes and the objects a kernel method is written with.
-// The kernel itself is plain k, which needs no name to be typed.
+// Gaussian processes and the objects a kernel method is written with. The
+// covariance kernel is k, spelled out because ker is the kernel of a map.
 #let gp = math.cal("G") + math.cal("P")
+#let kernel = $k$
 #let gram = amat("K")
 
 // Information-theoretic quantities.
@@ -30,9 +31,11 @@
 #let kl = math.op("KL")
 #let mutinfo = math.op("I")
 
-// Stochastic calculus: the quadratic variation and the filtration the process
-// is adapted to. Brownian motion is B and white noise is xi: white noise is the
-// distributional derivative of Brownian motion, so the two never share a letter.
+// Stochastic calculus: the driving noise, the quadratic variation, the
+// filtration the process is adapted to. White noise is the distributional
+// derivative of Brownian motion, so the two never share a letter.
+#let brown = $B$
+#let noise = $xi$
 #let filtration = math.cal("F")
 #let quadvar(a) = $lr(\[ #a \])$
 #let ito = math.op("Itô")
