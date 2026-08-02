@@ -31,8 +31,10 @@
 #let mutualinfo = math.op("I")
 
 // Stochastic calculus: the driving noise, the quadratic variation, the
-// filtration the process is adapted to.
-#let wiener = $W$
+// filtration the process is adapted to. White noise is the distributional
+// derivative of Brownian motion, so the two never share a letter.
+#let brownian = $B$
+#let whitenoise = $xi$
 #let filtration = math.cal("F")
 #let quadvar(a) = $lr(\[ #a \])$
 #let ito = math.op("Itô")

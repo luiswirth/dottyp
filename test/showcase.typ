@@ -127,8 +127,9 @@
   row("gammadist", $gammadist(alpha, beta)$), row("gp", $gp(m, kernel)$),
   row("kernel", $kernel(x, x')$), row("gram", $gram$),
   row("entropy", $entropy[X]$), row("kl", $kl(p || q)$),
-  row("mutualinfo", $mutualinfo(X; Y)$), row("wiener", $dif wiener_t$),
-  row("filtration", $filtration_t$), row("quadvar", $quadvar(X)_t$),
+  row("mutualinfo", $mutualinfo(X; Y)$), row("brownian", $dif brownian_t$),
+  row("whitenoise", $whitenoise_t$), row("filtration", $filtration_t$),
+  row("quadvar", $quadvar(X)_t$),
   row("ito", $ito$), row("convdist", $X_n convdist X$),
   row("convprob", $X_n convprob X$), row("convas", $X_n convas X$),
 )
