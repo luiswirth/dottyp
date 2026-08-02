@@ -9,8 +9,8 @@
 
 // Conditioning and distribution, both written with a bar or a tilde whose
 // spacing has to survive being surrounded by long expressions.
-#let given = math.class("binary", math.bar.v)
-#let distas = math.class("relation", math.tilde)
+#let given = math.class("binary", sym.bar.v)
+#let distas = math.class("relation", sym.tilde)
 #let iid = math.class("relation", $tilde.op^"iid"$)
 
 // Named distributions.
@@ -21,20 +21,18 @@
 #let gammadist = math.op("Gam")
 
 // Gaussian processes and the objects a kernel method is written with.
+// The kernel itself is plain k, which needs no name to be typed.
 #let gp = math.cal("G") + math.cal("P")
-#let kernel = $k$
 #let gram = amat("K")
 
 // Information-theoretic quantities.
 #let entropy = math.op("H")
 #let kl = math.op("KL")
-#let mutualinfo = math.op("I")
+#let mutinfo = math.op("I")
 
-// Stochastic calculus: the driving noise, the quadratic variation, the
-// filtration the process is adapted to. White noise is the distributional
-// derivative of Brownian motion, so the two never share a letter.
-#let brownian = $B$
-#let whitenoise = $xi$
+// Stochastic calculus: the quadratic variation and the filtration the process
+// is adapted to. Brownian motion is B and white noise is xi: white noise is the
+// distributional derivative of Brownian motion, so the two never share a letter.
 #let filtration = math.cal("F")
 #let quadvar(a) = $lr(\[ #a \])$
 #let ito = math.op("Itô")

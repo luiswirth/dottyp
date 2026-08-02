@@ -15,7 +15,7 @@
 // Spaces of continuous and smooth functions, and of distributions.
 #let cont = math.cal("C")
 #let smooth = $cal(C)^infinity$
-#let compactsupp = $cal(C)_c^infinity$
+#let smoothc = $cal(C)_c^infinity$
 #let distr = math.cal("D")
 
 // Duality: the topological dual of a space.

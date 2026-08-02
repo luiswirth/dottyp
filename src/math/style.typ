@@ -32,4 +32,4 @@
 
 // An unnumbered display equation that still wants a number, for the one
 // equation in a section worth pointing at.
-#let neq(body) = math.equation(block: true, numbering: "(1)", body)
+#let numeq(body) = math.equation(block: true, numbering: "(1)", body)

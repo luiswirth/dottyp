@@ -25,6 +25,6 @@
 #let innerlines(a, b) = angled(math.vec(delim: none, a, b))
 
 // Products and sums of spaces.
-#let tprod = math.times.o
-#let dsum = math.plus.o
-#let dsumspace = math.scripts(math.inline(math.plus.o.big))
+#let tprod = sym.times.o
+#let dsum = sym.plus.o
+#let bigdsum = math.scripts(math.inline(sym.plus.o.big))

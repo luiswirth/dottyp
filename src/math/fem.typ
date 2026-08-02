@@ -18,8 +18,7 @@
 #let lagrange0(p, m) = $cal(S)^0_(#p\,0) (#m)$
 #let discont(p, m) = $cal(S)^(-1)_#p (#m)$
 
-// Mesh size, element diameter and the reference element.
-#let meshsize = $h$
+// The reference element. Mesh size and element diameter are plain h.
 #let refcell = $hat(K)$
 
 // Interpolation and projection onto a discrete space.
