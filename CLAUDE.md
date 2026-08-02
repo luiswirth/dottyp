@@ -36,6 +36,9 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
   a box reads `palette.get()` under `context`.
   This is what makes light and dark one code path.
 - **`@preview/ctheorems` is the only external dependency.**
+- **A document vendors the library, never a path in its environment:**
+  a submodule at `lib/dottyp`, and `TYPST_PACKAGE_PATH` exported by the build script
+  and by the deploy workflow, so a build depends on nothing outside the checkout.
 
 ## Conventions
 
@@ -59,7 +62,8 @@ Never assert that a change renders.
 The showcase checks itself against the modules, so a new export must be added there,
 but that only proves the name exists.
 
-A template is verified by its own `build.sh`, with `TYPST_PACKAGE_PATH` pointing here.
+A template is verified by its own `build.sh`,
+which needs the library vendored at `lib/dottyp` as `templates/new.sh` puts it there.
 
 ## Typst 0.15
 
