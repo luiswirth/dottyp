@@ -29,6 +29,7 @@
 // Information-theoretic quantities.
 #let entropy = math.op("H")
 #let kl = math.op("KL")
+#let tvdist = math.op("TV")
 #let mutinfo = math.op("I")
 
 // Stochastic calculus: the driving noise, the quadratic variation, the
