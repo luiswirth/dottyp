@@ -29,6 +29,9 @@ $exterior.dif omega$
 
 ## Modules
 
+Two halves.
+`src/math/` is the notation a document writes, `src/layout/` is the shape it is written in.
+
 | module | what it carries |
 | --- | --- |
 | `notation` | vectors, matrices, tensors, conjugation, transposition, restriction |
@@ -42,6 +45,11 @@ $exterior.dif omega$
 | `feec` | simplices, polynomial spaces, Whitney forms, cochains, de Rham |
 | `probability` | measures, distributions, Gaussian processes, stochastic calculus |
 | `aliases` | single-letter shorthands, opt-in |
+| `theme` | the colors a document is drawn in, as `light-theme` and `dark-theme` |
+| `template` | `document-style`, the page and text a document is set on |
+| `sections` | `section-style` and its preface/body/appendix/postface presets, plus `notes-style` |
+| `blocks` | titled panels, framed blocks, circled text, rules, called-out equations |
+| `theorems` | theorem environments on `@preview/ctheorems`, the one external dependency |
 
 `aliases` is never re-exported by the glob:
 importing it puts a hundred single letters in scope,
@@ -52,11 +60,29 @@ which is fine in a document that wants them and a disaster in one that does not.
 #import aliases: *
 ```
 
-The typography is separate from the notation, and a document turns it on itself:
+A document turns on the layout it wants, and a thesis switches style between its parts:
 
 ```typst
-#show: math-style
+#show: document-style
+#show: thmrules
+
+#show: preface-style
+= Acknowledgments
+
+#show: body-style
+= Introduction
 ```
+
+`document-style` takes the theme, so the dark variant is the same code with different colors:
+
+```typst
+#show: document-style.with(colors: dark-theme)
+#show: notes-style
+```
+
+Every box reads its colors from the theme rather than naming `white` or `black`,
+which is what lets one set of definitions serve both.
+`math-style` alone is available for a document that wants the notation without the layout.
 
 ## Conventions
 
@@ -67,7 +93,9 @@ are declared with `math.class` so they bind to their argument rather than taking
 
 ## Test
 
-`test/showcase.typ` exercises every exported name.
-It is how a change is checked: compile it and look at the pages.
+`test/showcase.typ` exercises every exported name,
+`test/layout.typ` the four thesis parts and the boxes,
+`test/notes.typ` the same layout on the dark theme.
+This is how a change is checked: compile them and look at the pages.
 
     TYPST_PACKAGE_PATH=$PWD/pkg typst compile test/showcase.typ "test/showcase-{p}.png" --ppi 130
