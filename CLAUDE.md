@@ -26,9 +26,10 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 - **A module handle must not shadow a Typst builtin:**
   which is why the page template is `template.typ` exporting `document-style`,
   not `document`.
-- **Never redefine what Typst already gets right:**
-  the exterior derivative is Typst's `dif`, not a redefinition of it,
-  which is how it keeps the spacing the builtin carries.
+- **`dif` overrides the Typst builtin on purpose:**
+  the builtin sets a thin space before the d, which is right for the `dx` of an
+  integral and wrong for an operator, and this is a library for exterior calculus.
+  An integrand that wants the space asks for it, as `f thin dif x`.
 - **Colors come from the theme, never from a literal:**
   a box reads `palette.get()` under `context`.
   This is what makes light and dark one code path.
