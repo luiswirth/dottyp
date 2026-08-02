@@ -74,8 +74,11 @@
 // Lecture notes and summaries, where a section is a band across the page and
 // nothing starts on a fresh one. Not a variant of section-style: there is no
 // chapter, no page numbering scheme and no pagebreak to parameterize away.
-#let notes-style(heading-numbering: "1.1", doc) = {
+#let notes-style(heading-numbering: "1.1", eq-numbering: none, doc) = {
   set heading(numbering: heading-numbering)
+
+  // Nothing points at an equation in a note, so nothing numbers one.
+  set math.equation(numbering: eq-numbering)
 
   show heading: it => context block(
     fill: palette.get().surface,
