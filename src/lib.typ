@@ -47,5 +47,5 @@
 #import "layout/blocks.typ" as blocks
 #import "layout/theorems.typ" as theorems
 
-// Never re-exported wholesale: importing it puts 104 single letters in scope.
+// Never re-exported wholesale: importing it puts 77 single letters in scope.
 #import "math/aliases.typ" as aliases

@@ -1,5 +1,5 @@
 // Single-letter shorthands for decorated variables. Opt-in: importing this
-// module puts 104 names into scope, so it is imported explicitly rather than
+// module puts 77 names into scope, so it is imported explicitly rather than
 // coming along with the rest of the library.
 //
 //   xv  bold x, a vector
