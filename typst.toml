@@ -1,0 +1,8 @@
+[package]
+name = "dottyp"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Luis Wirth <luis@lwirth.com>"]
+license = "MIT"
+description = "Mathematical notation and document templates"
+repository = "https://github.com/luiswirth/dottyp"
