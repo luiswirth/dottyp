@@ -52,7 +52,7 @@ Two halves.
 | `theorems` | theorem environments on `@preview/ctheorems`, the one external dependency |
 
 `aliases` is never re-exported by the glob:
-importing it puts a hundred single letters in scope,
+importing it puts 77 single letters in scope,
 which is fine in a document that wants them and a disaster in one that does not.
 
 ```typst
@@ -92,11 +92,29 @@ Unary operators such as the Hodge star and the musical isomorphisms
 are declared with `math.class` so they bind to their argument rather than taking operator spacing.
 Symbols are taken from `sym`, and only functions from `math`.
 
+## Templates
+
+`templates/` holds one starting point per kind of document,
+each a repo of its own once copied out:
+`thesis` for long work split into chapters, a preface, an appendix and a bibliography,
+`paper` for a single-file document with a title block,
+`notes` for the dark unnumbered look.
+All three keep the library at arm's length behind `src/setup.typ`,
+which is the one file that imports it and the one place a document says how it departs from it.
+The theme is a named variable there, so light and dark are one word apart in any of them.
+
+Each carries a `build.sh` and a `watch.sh` writing to `out/`,
+and the GitHub workflow that deploys the compiled PDF to Pages.
+
 ## Test
 
-`test/showcase.typ` exercises every exported name,
-`test/layout.typ` the four thesis parts and the boxes,
+`test/showcase.typ` exercises every exported name of the math half,
+`test/layout.typ` the four thesis parts, the boxes and the theorem environments,
 `test/notes.typ` the same layout on the dark theme.
-This is how a change is checked: compile them and look at the pages.
+The showcase checks its sheets against the modules,
+so an export that is not shown, and a name shown that no longer exists, both fail the compile.
+What that cannot check is how a definition renders,
+so this is how a change is checked: compile them and look at the pages.
 
-    TYPST_PACKAGE_PATH=$PWD/pkg typst compile test/showcase.typ "test/showcase-{p}.png" --ppi 130
+    ./test.sh              compiles every test file to out/
+    ./watch.sh layout      watches one of them
