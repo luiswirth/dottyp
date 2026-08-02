@@ -29,9 +29,6 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 - **Never redefine what Typst already gets right:**
   the exterior derivative is Typst's `dif`, not a redefinition of it,
   which is how it keeps the spacing the builtin carries.
-- **A name never expands to a bare undecorated letter:**
-  it would cost more to type than the letter it stands for.
-  The letter a concept is written with is recorded in a comment instead.
 - **Colors come from the theme, never from a literal:**
   a box reads `palette.get()` under `context`.
   This is what makes light and dark one code path.
@@ -49,6 +46,8 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
   so the two kinds of name are told apart on sight.
 - A name that is typed as a symbol stays short, `bigwedge` and `dalem`.
   A name that wraps content may read as prose, `pushforward` and `dualspace`.
+- A name standing for a bare letter is kept, `msize` and `noise`:
+  it is what fixes which letter a concept owns across every document.
 
 ## Verifying
 

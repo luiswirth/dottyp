@@ -90,9 +90,6 @@ Vectors are bold italic, matrices upright bold.
 Intervals follow Bourbaki, so the open interval is `oo(a, b)` and prints as `]a, b[`.
 Unary operators such as the Hodge star and the musical isomorphisms
 are declared with `math.class` so they bind to their argument rather than taking operator spacing.
-A name that would expand to a bare undecorated letter is not defined at all:
-writing `h` is shorter than writing `meshsize`, and the letter a concept is written with
-is recorded in a comment instead.
 Symbols are taken from `sym`, and only functions from `math`.
 
 ## Test
