@@ -10,9 +10,12 @@
 #let altpow(k, v) = $"Alt"^#k (#v)$
 #let alt = math.op("Alt")
 
-// The formal adjoint of the exterior derivative. The exterior derivative is
-// Typst's own dif, which already sets an upright d and spaces it correctly.
-#let codif = math.upright($delta$)
+// The exterior derivative and its formal adjoint, both unary so they bind to
+// the form they act on. This deliberately overrides Typst's dif, which sets a
+// thin space before the d: right for the dx of an integral, wrong for an
+// operator, and compositions like hodge dif hodge are what this notation is for.
+#let dif = math.class("unary", math.upright($d$))
+#let codif = math.class("unary", math.upright($delta$))
 
 // The Hodge star, and the musical isomorphisms raising and lowering indices.
 #let hodge = math.class("unary", sym.star)
