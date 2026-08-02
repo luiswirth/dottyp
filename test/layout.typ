@@ -34,6 +34,14 @@ Inline #circletext[3] sits on the baseline.
 
 #proof[By partition of unity.]
 
+#lemma[Poincaré][On a contractible domain a closed form is exact.]
+
+#corollary[The de Rham cohomology of a ball vanishes above degree zero.]
+
+#proposition[The environments share one counter, so the numbers run on.]
+
+#example[The circle carries a closed one-form that is not exact.]
+
 #remark[Remarks are upright, unlike the statements above.]
 
 @stokes is referenced by its shared counter.
