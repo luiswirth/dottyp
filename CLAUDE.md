@@ -14,7 +14,9 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 - `src/lib.typ`:
   glob-reexports both halves and exposes each module as a named handle.
 - `test/`:
-  one file per half, compiled and looked at.
+  one file per half, plus the dark variant, compiled and looked at.
+- `templates/`:
+  one starting point per kind of document, copied out to become a repo of its own.
 
 ## Invariants
 
@@ -52,10 +54,12 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 
 ## Verifying
 
-Compile the test files and look at the rendered pages.
+Run `./test.sh` and look at the rendered pages in `out/`.
 Never assert that a change renders.
+The showcase checks itself against the modules, so a new export must be added there,
+but that only proves the name exists.
 
-    TYPST_PACKAGE_PATH=$PWD/pkg typst compile test/layout.typ "test/layout-{p}.png" --ppi 110
+A template is verified by its own `build.sh`, with `TYPST_PACKAGE_PATH` pointing here.
 
 ## Typst 0.15
 
