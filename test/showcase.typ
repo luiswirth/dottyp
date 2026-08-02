@@ -42,7 +42,7 @@
   row("Im", $Im z$), row("angled", $angled(x)$),
   row("inner", $inner(u, v)$), row("dual", $dual(f, x)$),
   row("innerlines", $innerlines(u, v)$), row("tprod", $U tprod V$),
-  row("dsum", $U dsum V$), row("dsumspace", $dsumspace_(k) V_k$),
+  row("dsum", $U dsum V$), row("bigdsum", $bigdsum_(k) V_k$),
 )
 
 = Analysis
@@ -66,7 +66,7 @@
   row("H0vec", $H0vec^1(Omega)$), row("Hgrad", $Hgrad$),
   row("Hcurl", $Hcurl$), row("Hdiv", $Hdiv$),
   row("cont", $cont^0(clos(Omega))$), row("smooth", $smooth (Omega)$),
-  row("compactsupp", $compactsupp (Omega)$), row("distr", $distr'(Omega)$),
+  row("smoothc", $smoothc (Omega)$), row("distr", $distr'(Omega)$),
   row("dualspace", $dualspace(V)$), row("", []),
 )
 
@@ -76,13 +76,13 @@
   row("grad", $grad u$), row("curl", $curl avec(E)$),
   row("div", $div avec(B)$), row("scurl", $scurl avec(u)$),
   row("rot", $rot avec(u)$), row("lapl", $lapl u$),
-  row("dalembert", $dalembert u$), row("", []),
+  row("dalem", $dalem u$), row("", []),
 )
 
 = Exterior calculus
 
 #sheet(
-  row("wedge", $alpha wedge beta$), row("wedgespace", $wedgespace^k V$),
+  row("wedge", $alpha wedge beta$), row("bigwedge", $bigwedge^k V$),
   row("extpow", $extpow(k, V)$), row("altpow", $altpow(k, V)$),
   row("alt", $alt(V)$), row("dif", $dif omega$),
   row("codif", $codif omega$), row("hodge", $hodge omega$),
@@ -99,19 +99,19 @@
   row("cells", $cells$), row("facets", $facets$),
   row("linf", $linf(l)(v)$), row("bilf", $bilf(a)(u, v)$),
   row("lagrange", $lagrange(1, mesh)$), row("lagrange0", $lagrange0(1, mesh)$),
-  row("discont", $discont(0, mesh)$), row("meshsize", $meshsize$),
-  row("refcell", $refcell$), row("interp", $interp_meshsize u$),
-  row("proj", $proj_meshsize u$), row("", []),
+  row("discont", $discont(0, mesh)$), row("", []),
+  row("refcell", $refcell$), row("interp", $interp_h u$),
+  row("proj", $proj_h u$), row("", []),
 )
 
 = FEEC
 
 #sheet(
-  row("simplex", $simplex$), row("simpcomplex", $simpcomplex$),
+  row("simpcomp", $simpcomp$), row("", []),
   row("poly", $poly(r, k, mesh)$), row("polytrim", $polytrim(r, k, mesh)$),
   row("forms", $forms(k, Omega)$), row("l2forms", $l2forms(k, Omega)$),
-  row("hforms", $hforms(k, Omega)$), row("whitney", $whitney_simplex$),
-  row("cochains", $cochains^k (simpcomplex)$), row("bdry", $bdry simplex$),
+  row("hforms", $hforms(k, Omega)$), row("whitney", $whitney_sigma$),
+  row("cochains", $cochains^k (simpcomp)$), row("bdry", $bdry sigma$),
   row("derham", $derham$), row("cohom", $cohom(k)(Omega)$),
 )
 
@@ -124,11 +124,11 @@
   row("distas", $X distas normal(0, 1)$), row("iid", $X_i iid normal(0, 1)$),
   row("normal", $normal(mu, Sigma)$), row("uniform", $uniform(0, 1)$),
   row("bernoulli", $bernoulli(p)$), row("poisson", $poisson(lambda)$),
-  row("gammadist", $gammadist(alpha, beta)$), row("gp", $gp(m, kernel)$),
-  row("kernel", $kernel(x, x')$), row("gram", $gram$),
+  row("gammadist", $gammadist(alpha, beta)$), row("gp", $gp(m, k)$),
+  row("gram", $gram$),
   row("entropy", $entropy[X]$), row("kl", $kl(p || q)$),
-  row("mutualinfo", $mutualinfo(X; Y)$), row("brownian", $dif brownian_t$),
-  row("whitenoise", $whitenoise_t$), row("filtration", $filtration_t$),
+  row("mutinfo", $mutinfo(X; Y)$), row("", []),
+  row("filtration", $filtration_t$),
   row("quadvar", $quadvar(X)_t$),
   row("ito", $ito$), row("convdist", $X_n convdist X$),
   row("convprob", $X_n convprob X$), row("convas", $X_n convas X$),
@@ -144,6 +144,6 @@
 = Style
 
 #sheet(
-  row("neq", neq($a^2 + b^2 = c^2$)),
+  row("numeq", numeq($a^2 + b^2 = c^2$)),
   row("", []), row("", []), row("", []),
 )

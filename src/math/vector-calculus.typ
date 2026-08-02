@@ -10,5 +10,5 @@
 #let scurl = math.op("curl")
 #let rot = math.op(avec("rot"))
 
-#let lapl = math.Delta
-#let dalembert = math.square
+#let lapl = sym.Delta
+#let dalem = sym.square

@@ -21,7 +21,7 @@
 
 // Adjoints. Both marks render as the same glyph in most fonts; the names
 // distinguish the real transpose from the conjugate one.
-#let transp = math.top
+#let transp = sym.top
 #let herm = math.upright(math.sans("H"))
 
 // A tight tilde meaning "of the order of", unary so it takes no operator spacing.

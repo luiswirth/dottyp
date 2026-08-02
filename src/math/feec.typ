@@ -1,6 +1,5 @@
-// Simplices and the simplicial complex they form.
-#let simplex = math.sigma
-#let simpcomplex = math.cal("T")
+// The simplicial complex. A simplex itself is plain sigma.
+#let simpcomp = math.cal("T")
 
 // Spaces of polynomial differential forms. poly(r, k, m) is the space of
 // k-forms with coefficients of degree at most r, and polytrim the reduced
@@ -18,7 +17,7 @@
 
 // Chains, cochains, and the boundary operator dual to the exterior derivative.
 #let cochains = math.op("C")
-#let bdry = math.partial
+#let bdry = sym.partial
 
 // The de Rham complex and the cohomology read off it.
 #let derham = math.cal("R")
