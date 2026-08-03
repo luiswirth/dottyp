@@ -10,7 +10,7 @@
 
 #let article-document(
   title: none,
-  author: none,
+  author: (),
   colors: light-theme,
   fonts: serif-fonts,
   body,
