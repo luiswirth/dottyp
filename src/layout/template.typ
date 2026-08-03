@@ -30,6 +30,13 @@
   set text(font: font, size: size, fill: colors.fg)
   set par(justify: justify, leading: leading)
 
+  // An item is spaced like a line, always. Typst would otherwise widen a list
+  // whose items are separated by blank lines, which is the Markdown rule for
+  // multi-paragraph items and wrong here: prose is broken semantically, so a
+  // blank line is a way of laying out the source and carries no meaning.
+  set list(spacing: leading)
+  set enum(spacing: leading)
+
   show link: set text(fill: colors.accent)
 
   show: math-style

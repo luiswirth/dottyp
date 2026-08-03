@@ -100,7 +100,7 @@
     row("gammadist", $gammadist(alpha, beta)$), row("gp", $gp(m, kernel)$),
     row("kernel", $kernel(x, x')$), row("gram", $gram$),
     row("entropy", $entropy[X]$), row("kl", $kl(p || q)$),
-    row("mutinfo", $mutinfo(X; Y)$), row("", []),
+    row("mutinfo", $mutinfo(X; Y)$), row("tvdist", $tvdist(p, q)$),
     row("filtration", $filtration_t$), row("quadvar", $quadvar(X)_t$),
     row("ito", $ito$), row("brown", $dif brown_t$),
     row("noise", $noise_t$), row("convdist", $X_n convdist X$),
