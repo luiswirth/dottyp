@@ -39,6 +39,21 @@
   set list(spacing: leading)
   set enum(spacing: leading)
 
+  // Text is the only thing that takes its color from the text. Everything
+  // geometric resolves auto, or a stroke given as a bare width, to literal
+  // black, so each such element is handed the palette here. Only the defaults:
+  // an explicit stroke is the document's own business, and the invariant that
+  // it reads the palette rather than naming a color stands.
+  set line(stroke: colors.fg)
+  set rect(stroke: colors.fg)
+  set square(stroke: colors.fg)
+  set circle(stroke: colors.fg)
+  set ellipse(stroke: colors.fg)
+  set polygon(stroke: colors.fg)
+  set curve(stroke: colors.fg)
+  set table(stroke: colors.fg)
+  set footnote.entry(separator: line(length: 30%, stroke: 0.5pt + colors.fg))
+
   show link: set text(fill: colors.accent)
 
   show: math-style.with(font: fonts.math)
