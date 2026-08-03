@@ -19,7 +19,7 @@
   font: "New Computer Modern Sans",
   size: 12pt,
   justify: false,
-  spacing: 0.65em,
+  leading: 0.65em,
   doc,
 ) = {
   palette.update(colors)
@@ -28,9 +28,7 @@
   // at a page the page itself does not name is useless.
   set page(paper: paper, margin: margin, fill: colors.bg, numbering: numbering)
   set text(font: font, size: size, fill: colors.fg)
-  set par(justify: justify, leading: spacing)
-  set list(spacing: spacing)
-  set enum(spacing: spacing)
+  set par(justify: justify, leading: leading)
 
   show link: set text(fill: colors.accent)
 
