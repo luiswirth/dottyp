@@ -1,8 +1,10 @@
 #import "theme.typ": *
+#import "typeface.typ": *
 #import "../math/style.typ": math-style
 
 // The page a document is set on. Light and dark differ only in the palette
-// handed in, which is why there is one template and not two.
+// handed in, and serif and sans only in the faces, which is why there is one
+// template and not four.
 
 // The margin is set from the measure rather than the other way round: prose
 // reads at 45 to 75 characters a line, and 12pt over 14cm is 72 of them. A
@@ -16,7 +18,7 @@
   paper: "a4",
   margin: (x: 3.5cm, y: 3cm),
   numbering: "1",
-  font: "New Computer Modern Sans",
+  fonts: sans-fonts,
   size: 12pt,
   justify: false,
   leading: 0.65em,
@@ -27,7 +29,7 @@
   // Numbered here and not only in section-style, since an outline that points
   // at a page the page itself does not name is useless.
   set page(paper: paper, margin: margin, fill: colors.bg, numbering: numbering)
-  set text(font: font, size: size, fill: colors.fg)
+  set text(font: fonts.text, size: size, fill: colors.fg)
   set par(justify: justify, leading: leading)
 
   // An item is spaced like a line, always. Typst would otherwise widen a list
@@ -39,7 +41,7 @@
 
   show link: set text(fill: colors.accent)
 
-  show: math-style
+  show: math-style.with(font: fonts.math)
 
   doc
 }
