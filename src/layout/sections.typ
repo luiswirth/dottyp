@@ -1,5 +1,3 @@
-#import "theme.typ": palette
-
 // How a stretch of a document numbers its pages and sets its headings.
 //
 // A thesis is four such stretches, differing only in the arguments below, so
@@ -71,30 +69,15 @@
   reset-pagecount: true,
 )
 
-// Lecture notes and summaries, where a section is a band across the page and
-// nothing starts on a fresh one. Not a variant of section-style: there is no
-// chapter, no page numbering scheme and no pagebreak to parameterize away.
+// Lecture notes and summaries, where nothing starts on a fresh page. Headings
+// are left to the Typst default, so this only numbers. Not a variant of
+// section-style: there is no chapter, no page numbering scheme and no
+// pagebreak to parameterize away.
 #let notes-style(heading-numbering: "1.1", eq-numbering: none, doc) = {
   set heading(numbering: heading-numbering)
 
   // Nothing points at an equation in a note, so nothing numbers one.
   set math.equation(numbering: eq-numbering)
-
-  show heading: it => context block(
-    fill: palette.get().surface,
-    inset: 0.3em,
-    radius: 0.2em,
-    width: 100%,
-    sticky: true,
-    {
-      set text(size: 16pt - 2pt * (it.level - 1), weight: "bold")
-      if it.numbering != none {
-        counter(heading).display()
-        h(0.5em, weak: true)
-      }
-      it.body
-    },
-  )
 
   doc
 }
