@@ -23,6 +23,7 @@
 #import "math/probability.typ": *
 
 #import "layout/theme.typ": *
+#import "layout/typeface.typ": *
 #import "layout/template.typ": *
 #import "layout/sections.typ": *
 #import "layout/blocks.typ": *
@@ -42,6 +43,7 @@
 #import "math/probability.typ" as probability
 
 #import "layout/theme.typ" as theme
+#import "layout/typeface.typ" as typeface
 #import "layout/template.typ" as template
 #import "layout/sections.typ" as sections
 #import "layout/blocks.typ" as blocks
