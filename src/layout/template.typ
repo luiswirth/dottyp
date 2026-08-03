@@ -51,7 +51,15 @@
   set ellipse(stroke: colors.fg)
   set polygon(stroke: colors.fg)
   set curve(stroke: colors.fg)
-  set table(stroke: colors.fg)
+  set table(stroke: colors.fg, inset: (x: 0.8em, y: 0.6em), align: left + horizon)
+
+  // A cell is a box and not a paragraph, so math in it would otherwise be set
+  // inline, which puts the limits of a large operator beside it and crowds the
+  // row. Cells are display context.
+  show table: it => {
+    show math.equation.where(block: false): math.display
+    it
+  }
   set footnote.entry(separator: line(length: 30%, stroke: 0.5pt + colors.fg))
 
   show link: set text(fill: colors.accent)
