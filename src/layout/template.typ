@@ -15,6 +15,7 @@
   colors: light-theme,
   paper: "a4",
   margin: (x: 3.5cm, y: 3cm),
+  numbering: "1",
   font: "New Computer Modern Sans",
   size: 12pt,
   justify: false,
@@ -23,7 +24,9 @@
 ) = {
   palette.update(colors)
 
-  set page(paper: paper, margin: margin, fill: colors.bg)
+  // Numbered here and not only in section-style, since an outline that points
+  // at a page the page itself does not name is useless.
+  set page(paper: paper, margin: margin, fill: colors.bg, numbering: numbering)
   set text(font: font, size: size, fill: colors.fg)
   set par(justify: justify, leading: spacing)
   set list(spacing: spacing)
