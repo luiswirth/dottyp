@@ -41,6 +41,9 @@
 #let quadvar(a) = $lr(\[ #a \])$
 #let ito = math.op("Itô")
 
+// Equality of laws, as against equality of the random variables themselves.
+#let eqdist = math.class("relation", $=^d$)
+
 // Convergence, in the three modes that need distinguishing.
 #let convdist = math.class("relation", $arrow.r^d$)
 #let convprob = math.class("relation", $arrow.r^p$)
