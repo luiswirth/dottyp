@@ -35,6 +35,7 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 - **Colors come from the theme, never from a literal:**
   a box reads `palette.get()` under `context`.
   This is what makes light and dark one code path.
+  A stroke names its paint, since a bare width takes black.
 - **Never duplicate setup in a document that can be done here:**
   a document declares its choices, and dottyp carries everything else.
 - **`@preview/ctheorems` is the only external dependency.**
