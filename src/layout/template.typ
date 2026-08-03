@@ -4,13 +4,20 @@
 // The page a document is set on. Light and dark differ only in the palette
 // handed in, which is why there is one template and not two.
 
+// The margin is set from the measure rather than the other way round: prose
+// reads at 45 to 75 characters a line, and 12pt over 14cm is 72 of them. A
+// document that wants density says so, as the cram sheets do.
+//
+// Justification is off because it spreads its slack over the inter-word gaps,
+// and prose carrying inline math offers too few of them, so the slack collects
+// in a handful of holes. Hyphenation follows justification and is off with it.
 #let document-style(
   colors: light-theme,
   paper: "a4",
-  margin: 2cm,
+  margin: (x: 3.5cm, y: 3cm),
   font: "New Computer Modern Sans",
-  size: 10pt,
-  justify: true,
+  size: 12pt,
+  justify: false,
   spacing: 0.65em,
   doc,
 ) = {
