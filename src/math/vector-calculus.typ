@@ -10,5 +10,7 @@
 #let scurl = math.op("curl")
 #let rot = math.op(avec("rot"))
 
+// The second-order operators. Hess is a matrix and is set bold, lapl its trace.
+#let hess = math.op(amat("Hess"))
 #let lapl = sym.Delta
 #let dalem = sym.square
