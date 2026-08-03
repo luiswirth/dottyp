@@ -35,6 +35,11 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 - **Colors come from the theme, never from a literal:**
   a box reads `palette.get()` under `context`.
   This is what makes light and dark one code path.
+- **A document declares its choices and nothing else:**
+  a `setup.typ` names a title, a palette and a typeface, and applies
+  `article-document` or `notes-document`.
+  Anything it would otherwise spell out itself, the order the rules go on in
+  included, belongs here instead, or the projects drift apart one by one.
 - **`@preview/ctheorems` is the only external dependency.**
 - **A document vendors the library, never a path in its environment:**
   a submodule at `lib/dottyp`, and `TYPST_PACKAGE_PATH` exported by the build script
