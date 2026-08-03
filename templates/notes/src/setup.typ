@@ -6,13 +6,9 @@
 #let title = "Title"
 #let author = "Luis Wirth"
 
-// The whole document is drawn in this one, light-theme or dark-theme.
-#let colors = dark-theme
-
-#let setup(body) = {
-  set document(title: title, author: author)
-  show: document-style.with(colors: colors)
-  show: notes-style
-  show: thmrules
-  body
-}
+#let setup = notes-document.with(
+  title: title,
+  author: author,
+  colors: dark-theme,
+  fonts: serif-fonts,
+)

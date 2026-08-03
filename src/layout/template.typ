@@ -18,7 +18,7 @@
   paper: "a4",
   margin: (x: 3.5cm, y: 3cm),
   numbering: "1",
-  fonts: sans-fonts,
+  fonts: serif-fonts,
   size: 12pt,
   justify: false,
   leading: 0.65em,
