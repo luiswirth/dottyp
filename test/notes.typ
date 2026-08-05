@@ -1,4 +1,3 @@
-// The dark notes look, which is the same layout code with a different theme.
 #import "@local/dottyp:0.1.0": *
 
 #show: document-style.with(colors: dark-theme)

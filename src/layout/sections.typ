@@ -1,11 +1,5 @@
-// How a stretch of a document numbers its pages and sets its headings.
-//
-// A thesis is four such stretches, differing only in the arguments below, so
-// the four presets are applications of one function rather than four copies.
-
 #let section-style(
-  // Printed before the chapter number on a level-one heading, as in
-  // "Chapter 3". None leaves the heading bare.
+  // Printed before the chapter number, as in "Chapter 3".
   label: none,
   heading-numbering: none,
   page-numbering: "1",
@@ -69,14 +63,11 @@
   reset-pagecount: true,
 )
 
-// Lecture notes and summaries, where nothing starts on a fresh page. Headings
-// are left to the Typst default, so this only numbers. Not a variant of
-// section-style: there is no chapter, no page numbering scheme and no
-// pagebreak to parameterize away.
+// Not a variant of section-style: there is no chapter, no page numbering
+// scheme and no pagebreak to parameterize away.
 #let notes-style(heading-numbering: "1.1", eq-numbering: none, doc) = {
   set heading(numbering: heading-numbering)
 
-  // Nothing points at an equation in a note, so nothing numbers one.
   set math.equation(numbering: eq-numbering)
 
   doc

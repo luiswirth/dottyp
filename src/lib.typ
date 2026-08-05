@@ -1,16 +1,3 @@
-// The whole library, minus the opt-in shorthands.
-//
-// Two halves: math/ is the notation a document writes, layout/ is the shape it
-// is written in.
-//
-// No name is defined twice across these modules: a glob import of the lot is
-// unambiguous, and a name means one thing wherever it is read.
-//
-//   #import "@local/dottyp:0.1.0": *              everything
-//   #import "@local/dottyp:0.1.0": exterior       one module, qualified
-//   #import "@local/dottyp:0.1.0": aliases        the opt-in shorthands
-//   #import aliases: *
-
 #import "math/notation.typ": *
 #import "math/style.typ": *
 #import "math/algebra.typ": *
@@ -31,8 +18,6 @@
 #import "layout/theorems.typ": *
 #import "layout/documents.typ": *
 
-// The same modules as handles, for documents that would rather qualify a name
-// than pull the whole library into scope.
 #import "math/notation.typ" as notation
 #import "math/style.typ" as style
 #import "math/algebra.typ" as algebra
@@ -53,5 +38,4 @@
 #import "layout/theorems.typ" as theorems
 #import "layout/documents.typ" as documents
 
-// Never re-exported wholesale: importing it puts 77 single letters in scope.
 #import "math/aliases.typ" as aliases

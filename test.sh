@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-# Compiles every test file to out/. Looking at the pages is the test.
 
 set -e
 export TYPST_PACKAGE_PATH="$PWD/pkg"

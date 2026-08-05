@@ -1,7 +1,5 @@
-// Exercises every definition in the math half of the library. The sheets are
-// checked against the modules, so an export that is not shown here, and a name
-// shown here that no longer exists, both fail the compile; look at the output
-// to check that each one also renders as intended.
+// An export missing from a sheet, and a name here that no longer exists, both
+// fail the compile. That a definition renders as intended is checked by looking.
 
 #import "@local/dottyp:0.1.0": *
 #import "@local/dottyp:0.1.0": aliases, algebra, analysis, exterior, feec, fem, notation, probability, quantum, spaces, style, vector-calculus
@@ -118,15 +116,14 @@
     row("numeq", numeq($a^2 + b^2 = c^2$)),
     row("", []), row("", []), row("", []),
   ),
-  // A mechanical family, so the sheet is the family itself. What the module
-  // imports to build it is shown under Notation instead.
+  // A mechanical family, so the sheet is the family itself.
   "Aliases": dictionary(aliases).pairs()
     .filter(((name, body)) => type(body) == content)
     .map(((name, body)) => row(name, body)),
 )
 
 // A label may carry the arguments it varies, as in "deriv n:2", so the name is
-// its first word. The fillers keeping a grid rectangular are named "".
+// its first word. A filler keeping the grid rectangular is named "".
 #let name-of(label) = label.text.split(" ").at(0)
 
 #let names(cells) = cells.chunks(2).map(pair => name-of(pair.first()))
