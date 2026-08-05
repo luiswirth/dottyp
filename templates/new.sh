@@ -34,10 +34,14 @@ git -C "$here" archive HEAD "$kind" | tar -x --strip-components=1 -C "$dest"
 cd "$dest"
 name=$(basename "$PWD")
 
-# The document is published under the name of its repository.
-workflow=.github/workflows/typst-deploy.yml
-sed "s|src/main.typ document.pdf|src/main.typ $name.pdf|" "$workflow" > "$workflow.new"
-mv "$workflow.new" "$workflow"
+# The document carries the name of its repository, in the build as in the
+# deploy, which the templates write as document.pdf until there is a name.
+for file in build.sh watch.sh .github/workflows/typst-deploy.yml; do
+  sed "s|document\.pdf|$name.pdf|" "$file" > "$file.new"
+  mv "$file.new" "$file"
+done
+# sed and mv drop the executable bit the archive carried.
+chmod +x build.sh watch.sh
 
 git init -q
 git submodule add -q https://github.com/luiswirth/dottyp lib/dottyp
