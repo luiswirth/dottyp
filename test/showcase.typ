@@ -4,7 +4,7 @@
 // to check that each one also renders as intended.
 
 #import "@local/dottyp:0.1.0": *
-#import "@local/dottyp:0.1.0": aliases, algebra, analysis, exterior, feec, fem, notation, probability, spaces, style, vector-calculus
+#import "@local/dottyp:0.1.0": aliases, algebra, analysis, exterior, feec, fem, notation, probability, quantum, spaces, style, vector-calculus
 #import aliases: *
 
 #show: math-style.with(numbering: none)
@@ -25,7 +25,7 @@
     row("conj", $conj(z)$), row("clos", $clos(Omega)$),
     row("restr", $restr(f, s: Gamma)$), row("restr bare", $restr(f)$),
     row("transp", $amat(A)^transp$), row("herm", $amat(A)^herm$),
-    row("approxmag", $approxmag 10^(-3)$), row("", []),
+    row("approxmag", $approxmag 10^(-3)$), row("dagger", $amat(A)^dagger$),
   ),
   "Algebra": (
     row("lin", $lin(U, V)$), row("ker", $ker T$),
@@ -35,7 +35,8 @@
     row("span", $span_(i) {v_i}$), row("Re", $Re z$),
     row("Im", $Im z$), row("angled", $angled(x)$),
     row("inner", $inner(u, v)$), row("dual", $dual(f, x)$),
-    row("innerlines", $innerlines(u, v)$), row("tprod", $U tprod V$),
+    row("innerlines", $innerlines(u, v)$), row("commutator", $commutator(amat(A), amat(B))$),
+    row("anticommutator", $anticommutator(amat(A), amat(B))$), row("tprod", $U tprod V$),
     row("dsum", $U dsum V$), row("bigdsum", $bigdsum_(k) V_k$),
   ),
   "Analysis": (
@@ -107,6 +108,12 @@
     row("convdist", $X_n convdist X$), row("convprob", $X_n convprob X$),
     row("convas", $X_n convas X$), row("", []),
   ),
+  "Quantum": (
+    row("ket", $ket(psi)$), row("bra", $bra(phi)$),
+    row("braket", $braket(phi, psi)$), row("ketbra", $ketbra(psi, psi)$),
+    row("ret", $G^ret$), row("adv", $G^adv$),
+    row("lesser", $G^lesser$), row("greater", $G^greater$),
+  ),
   "Style": (
     row("numeq", numeq($a^2 + b^2 = c^2$)),
     row("", []), row("", []), row("", []),
@@ -126,7 +133,7 @@
 
 #let exported = (
   notation, style, algebra, analysis, spaces, vector-calculus, exterior, fem,
-  feec, probability, aliases,
+  feec, probability, quantum, aliases,
 ).map(module => dictionary(module).keys()).flatten().dedup()
 
 #let shown = sheets.values().map(cells => names(cells.flatten())).flatten()

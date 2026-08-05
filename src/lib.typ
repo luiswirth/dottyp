@@ -21,6 +21,7 @@
 #import "math/fem.typ": *
 #import "math/feec.typ": *
 #import "math/probability.typ": *
+#import "math/quantum.typ": *
 
 #import "layout/theme.typ": *
 #import "layout/typeface.typ": *
@@ -42,6 +43,7 @@
 #import "math/fem.typ" as fem
 #import "math/feec.typ" as feec
 #import "math/probability.typ" as probability
+#import "math/quantum.typ" as quantum
 
 #import "layout/theme.typ" as theme
 #import "layout/typeface.typ" as typeface

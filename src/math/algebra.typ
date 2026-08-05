@@ -24,6 +24,11 @@
 // The same pairing when the arguments are long enough to want their own lines.
 #let innerlines(a, b) = angled(math.vec(delim: none, a, b))
 
+// The Lie bracket of two maps, and its symmetric counterpart. Both measure a
+// failure to commute, so neither belongs to any one theory that writes them.
+#let commutator(a, b) = math.lr($[#a, #b]$)
+#let anticommutator(a, b) = math.lr($\{#a, #b\}$)
+
 // Products and sums of spaces.
 #let tprod = sym.times.o
 #let dsum = sym.plus.o

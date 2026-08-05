@@ -54,6 +54,7 @@ Two halves.
 | `fem` | meshes, cells, forms, finite element spaces, interpolation |
 | `feec` | simplices, polynomial spaces, Whitney forms, cochains, de Rham |
 | `probability` | measures, distributions, Gaussian processes, stochastic calculus |
+| `quantum` | Dirac notation, and the marks of the Keldysh Green's functions |
 | `aliases` | single-letter shorthands, opt-in |
 | `theme` | the colors a document is drawn in, as `light-theme` and `dark-theme` |
 | `template` | `document-style`, the page and text a document is set on |
