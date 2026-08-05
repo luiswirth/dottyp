@@ -61,7 +61,7 @@
     row("grad", $grad u$), row("curl", $curl avec(E)$),
     row("div", $div avec(B)$), row("scurl", $scurl avec(u)$),
     row("rot", $rot avec(u)$), row("lapl", $lapl u$),
-    row("dalem", $dalem u$), row("", []),
+    row("dalem", $dalem u$), row("hess", $hess u$),
   ),
   "Exterior calculus": (
     row("wedge", $alpha wedge beta$), row("bigwedge", $bigwedge^k V$),
@@ -103,8 +103,9 @@
     row("mutinfo", $mutinfo(X; Y)$), row("tvdist", $tvdist(p, q)$),
     row("filtration", $filtration_t$), row("quadvar", $quadvar(X)_t$),
     row("ito", $ito$), row("brown", $dif brown_t$),
-    row("noise", $noise_t$), row("convdist", $X_n convdist X$),
-    row("convprob", $X_n convprob X$), row("convas", $X_n convas X$),
+    row("noise", $noise_t$), row("eqdist", $X eqdist Y$),
+    row("convdist", $X_n convdist X$), row("convprob", $X_n convprob X$),
+    row("convas", $X_n convas X$), row("", []),
   ),
   "Style": (
     row("numeq", numeq($a^2 + b^2 = c^2$)),
