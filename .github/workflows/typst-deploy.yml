@@ -15,5 +15,7 @@ jobs:
     uses: luiswirth/typst-deploy/.github/workflows/typst-deploy.yml@v2
     with:
       documents: |
-        src/main.typ document.pdf
-      package_path: lib/dottyp/pkg
+        test/showcase.typ
+        test/layout.typ
+        test/notes.typ
+      package_path: pkg

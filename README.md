@@ -122,6 +122,16 @@ Each carries a `build.sh` and a `watch.sh` writing to `out/`,
 and the GitHub workflow that deploys the compiled PDF to Pages
 through [typst-deploy](https://github.com/luiswirth/typst-deploy),
 which is told where the vendored library sits and needs nothing else.
+The document is published under the name of its repository.
+
+Deploying takes a remote with Pages enabled, which `new.sh` creates
+once it is told how the repository is to be visible:
+
+    ./templates/new.sh paper ~/dev/some-paper --private
+
+Read that flag as covering the sources alone.
+A Pages site is public whatever its repository is,
+so `--private` publishes the PDF and hides what it was built from.
 
 ## Test
 
@@ -135,3 +145,7 @@ so this is how a change is checked: compile them and look at the pages.
 
     ./test.sh              compiles every test file to out/
     ./watch.sh layout      watches one of them
+
+The same three are what this repository deploys,
+so the rendered pages of the current commit are listed at
+<https://lwirth.com/dottyp/>.
