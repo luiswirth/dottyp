@@ -1,6 +1,3 @@
-// Math typography, kept apart from the notation itself: these are the rules a
-// document turns on, not symbols it writes.
-
 #let math-style(
   font: "New Computer Modern Math",
   delim: "[",
@@ -14,7 +11,7 @@
   set math.equation(numbering: numbering)
 
   // A reference to an equation shows only its number, as (3) rather than
-  // Equation 3, which is how it is read aloud inside a sentence.
+  // Equation 3.
   show ref: it => {
     let el = it.element
     if bare-eq-refs and el != none and el.func() == math.equation {
@@ -30,6 +27,4 @@
   doc
 }
 
-// An unnumbered display equation that still wants a number, for the one
-// equation in a section worth pointing at.
 #let numeq(body) = math.equation(block: true, numbering: "(1)", body)

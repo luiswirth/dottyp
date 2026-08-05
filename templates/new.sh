@@ -1,10 +1,8 @@
 #!/usr/bin/env sh
-# Copies a template out into a repository of its own, with dottyp vendored as a
-# submodule under lib/. Given --private or --public it also creates the GitHub
-# remote and enables Pages, which is what makes the deploy workflow the template
-# carries do anything. A Pages site is public either way, so --private hides the
-# sources and publishes the PDF.
 # Usage: ./templates/new.sh <thesis|paper|notes> <path> [--private|--public]
+#
+# A Pages site is public either way, so --private hides the sources and
+# publishes the PDF.
 
 set -e
 
@@ -27,20 +25,17 @@ if [ -e "$dest" ]; then
   exit 1
 fi
 
-# What git tracks is what the template is, so build output never travels along.
 mkdir -p "$dest"
 git -C "$here" archive HEAD "$kind" | tar -x --strip-components=1 -C "$dest"
 
 cd "$dest"
 name=$(basename "$PWD")
 
-# The document carries the name of its repository, in the build as in the
-# deploy, which the templates write as document.pdf until there is a name.
 for file in build.sh watch.sh .github/workflows/typst-deploy.yml; do
   sed "s|document\.pdf|$name.pdf|" "$file" > "$file.new"
   mv "$file.new" "$file"
 done
-# sed and mv drop the executable bit the archive carried.
+# sed and mv drop the executable bit.
 chmod +x build.sh watch.sh
 
 git init -q
@@ -52,8 +47,8 @@ git commit -qm "start from the dottyp $kind template"
 
 if [ -n "$visibility" ]; then
   gh repo create "$name" "$visibility" --source=. --remote=origin --push
-  # Pages has to exist before the first run, which would otherwise fail in its
-  # deploy step with nothing to deploy to.
+  # Pages has to exist before the first run, which has nothing to deploy to
+  # otherwise.
   slug=$(gh repo view --json nameWithOwner -q .nameWithOwner)
   gh api -X POST "repos/$slug/pages" -f build_type=workflow >/dev/null
 fi

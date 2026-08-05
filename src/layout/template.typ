@@ -2,17 +2,12 @@
 #import "typeface.typ": *
 #import "../math/style.typ": math-style
 
-// The page a document is set on. Light and dark differ only in the palette
-// handed in, and serif and sans only in the faces, which is why there is one
-// template and not four.
-
 // The margin is set from the measure rather than the other way round: prose
-// reads at 45 to 75 characters a line, and 12pt over 14cm is 72 of them. A
-// document that wants density says so, as the cram sheets do.
+// reads at 45 to 75 characters a line, and 12pt over 14cm is 72 of them.
 //
-// Justification is off because it spreads its slack over the inter-word gaps,
-// and prose carrying inline math offers too few of them, so the slack collects
-// in a handful of holes. Hyphenation follows justification and is off with it.
+// Justification spreads its slack over the inter-word gaps, and prose carrying
+// inline math offers too few of them, so the slack collects in a handful of
+// holes.
 #let document-style(
   colors: light-theme,
   paper: "a4",
@@ -26,24 +21,21 @@
 ) = {
   palette.update(colors)
 
-  // Numbered here and not only in section-style, since an outline that points
-  // at a page the page itself does not name is useless.
+  // Numbered here and not only in section-style: an outline pointing at a page
+  // the page itself does not name is useless.
   set page(paper: paper, margin: margin, fill: colors.bg, numbering: numbering)
   set text(font: fonts.text, size: size, fill: colors.fg)
   set par(justify: justify, leading: leading)
 
-  // An item is spaced like a line, always. Typst would otherwise widen a list
-  // whose items are separated by blank lines, which is the Markdown rule for
-  // multi-paragraph items and wrong here: prose is broken semantically, so a
-  // blank line is a way of laying out the source and carries no meaning.
+  // Typst would otherwise widen a list whose items are separated by blank
+  // lines, the Markdown rule for multi-paragraph items. Prose is broken
+  // semantically here, so a blank line lays out the source and means nothing.
   set list(spacing: leading)
   set enum(spacing: leading)
 
-  // Text is the only thing that takes its color from the text. Everything
-  // geometric resolves auto, or a stroke given as a bare width, to literal
-  // black, so each such element is handed the palette here. Only the defaults:
-  // an explicit stroke is the document's own business, and the invariant that
-  // it reads the palette rather than naming a color stands.
+  // Everything geometric resolves auto, or a stroke given as a bare width, to
+  // literal black rather than to the text color, so each one is handed the
+  // palette here.
   set line(stroke: colors.fg)
   set rect(stroke: colors.fg)
   set square(stroke: colors.fg)
@@ -54,8 +46,7 @@
   set table(stroke: colors.fg, inset: (x: 0.8em, y: 0.6em), align: left + horizon)
 
   // A cell is a box and not a paragraph, so math in it would otherwise be set
-  // inline, which puts the limits of a large operator beside it and crowds the
-  // row. Cells are display context.
+  // inline, which puts the limits of a large operator beside it.
   show table: it => {
     show math.equation.where(block: false): math.display
     it

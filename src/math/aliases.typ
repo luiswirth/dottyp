@@ -1,6 +1,4 @@
-// Single-letter shorthands for decorated variables. Opt-in: importing this
-// module puts 77 names into scope, so it is imported explicitly rather than
-// coming along with the rest of the library.
+// The naming scheme these 77 shorthands follow:
 //
 //   xv  bold x, a vector
 //   Xv  bold X, a vector-valued object

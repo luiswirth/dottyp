@@ -1,7 +1,5 @@
-// The colors a document is drawn in, carried in state so that a box nested
-// anywhere can ask for them instead of naming white or black itself.
-//
-// Only document-style writes it. Everything else reads it under context.
+// Only document-style writes the palette. Everything else reads it under
+// context, which is what makes light and dark one code path.
 
 #let light-theme = (
   fg: black,
