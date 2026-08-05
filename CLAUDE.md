@@ -49,6 +49,9 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
   a name is added only where it is substantially better than the builtin,
   and an alias that merely repeats one does not earn a place.
 - Vectors bold italic, matrices upright bold.
+- **The first-order operators carry two notations:**
+  `grad`, `curl` and `div` set the word, Typst's `nabla` the symbol,
+  and a formula takes whichever of the two reads better in it.
 - Bourbaki intervals, so the open one prints as `]a, b[`.
 - Unary operators are declared with `math.class` so they bind to their argument
   rather than taking operator spacing.
