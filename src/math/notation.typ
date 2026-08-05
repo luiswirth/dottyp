@@ -19,10 +19,13 @@
 // Restriction of f to s, or the bare bar when the domain is left implicit.
 #let restr(f, s: none) = if s == none { $lr(#f|)$ } else { $lr(#f|)_#s$ }
 
-// Adjoints. Both marks render as the same glyph in most fonts; the names
-// distinguish the real transpose from the conjugate one.
+// Adjoints. The first two marks render as the same glyph in most fonts; the
+// names distinguish the real transpose from the conjugate one. The dagger
+// denotes the same conjugate transpose as herm in the spelling physics uses,
+// so a document commits to one of the two and never alternates.
 #let transp = sym.top
 #let herm = math.upright(math.sans("H"))
+#let dagger = sym.dagger
 
 // A tight tilde meaning "of the order of", unary so it takes no operator spacing.
 #let approxmag = math.class("unary", sym.tilde.op)
