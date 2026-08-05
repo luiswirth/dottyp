@@ -45,6 +45,9 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 
 ## Conventions
 
+- **What Typst already provides is never redefined here:**
+  a name is added only where it is substantially better than the builtin,
+  and an alias that merely repeats one does not earn a place.
 - Vectors bold italic, matrices upright bold.
 - Bourbaki intervals, so the open one prints as `]a, b[`.
 - Unary operators are declared with `math.class` so they bind to their argument
