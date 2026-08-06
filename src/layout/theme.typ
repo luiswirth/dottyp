@@ -8,6 +8,7 @@
   accent: blue,
   emphasis: red,
   surface: luma(94%),
+  marker: yellow.lighten(55%),
 )
 
 #let dark-theme = (
@@ -17,6 +18,7 @@
   accent: blue.lighten(40%),
   emphasis: red.lighten(20%),
   surface: luma(15%),
+  marker: yellow.darken(72%),
 )
 
 #let palette = state("dottyp-palette", light-theme)
