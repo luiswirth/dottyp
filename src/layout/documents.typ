@@ -25,9 +25,6 @@
   },
 )
 
-// A section opening with an outline of itself, for a document long enough that
-// a chapter is found rather than read front to back.
-//
 // The sections are found by location rather than by walking the body, which is
 // the only description that survives a section being wrapped in anything.
 #let chapter(title, body) = {

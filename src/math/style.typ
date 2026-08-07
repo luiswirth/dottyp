@@ -6,8 +6,6 @@
 
   // An equation earns a number by being referenced, and a label is what a
   // reference needs, so the labelled displays are exactly the numbered ones.
-  // Numbering is therefore never a document's choice: it is on, and an
-  // unreferenced display shows nothing anyway.
   show math.equation.where(block: true): it => {
     if it.numbering == none {
       it
@@ -40,13 +38,12 @@
   doc
 }
 
-// An equation the field has named is cited by that name rather than by a
-// number, at the display and at every reference. Its label is spelled as the
-// tag prints, <BTE>, so the two cannot drift apart.
+// An equation the field has named is cited by that name, at the display and at
+// every reference. Its label is spelled as the tag prints, so the two cannot
+// drift apart.
 //
-// The tag is set on the equation rather than drawn onto it, which is what
-// leaves the reference to Typst. One rule reaches one label, so the list is
-// folded over the body.
+// The tag is set on the equation rather than drawn onto it, which leaves the
+// reference to Typst. One rule reaches one label, hence the fold.
 #let tag-equations(names, body) = {
   let fold(names, body) = {
     if names.len() == 0 { return body }
@@ -60,8 +57,8 @@
 
   fold(names, body)
 
-  // A tag names a label that lives elsewhere in the document, which is the one
-  // thing here that can silently fall apart.
+  // A tag names a label living elsewhere, the one thing here that can silently
+  // fall apart.
   context assert(
     names.all(name => query(label(name)).len() > 0),
     message: "tag-equations names an equation that does not exist",

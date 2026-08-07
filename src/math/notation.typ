@@ -23,9 +23,8 @@
 // A tight tilde meaning "of the order of".
 #let approxmag = math.class("unary", sym.tilde.op)
 
-// The units a quantity is measured in, bracketed, and a value carrying its
-// units. The unit is spelled in letters, k g rather than the string "kg", which
-// is a text run and takes a space before a slash. Division inside one is slash,
+// A unit is spelled in letters, k g rather than the string "kg", which is a
+// text run and takes a space before a slash. Division inside one is slash,
 // / being the fraction operator.
 #let unit(u) = $lr([#math.upright(u)])$
 #let qty(value, u) = $value thin #math.upright(u)$

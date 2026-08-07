@@ -42,9 +42,8 @@
   length: 100%,
 )
 
-// The defining occurrence of a term, and the sentence a section has to be able
-// to state. Both leave metadata, so what a document defines and what it claims
-// are queryable without parsing the source.
+// The metadata leaves what a document defines and what it claims queryable
+// without parsing the source.
 //
 // A term's name is a string and never markup, so the collected vocabulary needs
 // no conversion.
