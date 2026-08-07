@@ -42,6 +42,10 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 - **A document vendors the library, never a path in its environment:**
   a submodule at `lib/dottyp`, and `TYPST_PACKAGE_PATH` exported by the build script
   and by the deploy workflow, so a build depends on nothing outside the checkout.
+- **The vendored copy is read-only:**
+  a change is written in the library's own checkout and pulled into the document,
+  a commit on the submodule's detached HEAD being invisible to every other document
+  and lost at the next pin bump.
 
 ## Conventions
 
