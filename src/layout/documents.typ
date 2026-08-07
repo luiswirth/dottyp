@@ -25,6 +25,28 @@
   },
 )
 
+// A section opening with an outline of itself, for a document long enough that
+// a chapter is found rather than read front to back.
+//
+// The sections are found by location rather than by walking the body, which is
+// the only description that survives a section being wrapped in anything.
+#let chapter(title, body) = {
+  pagebreak(weak: true)
+  heading(level: 1, title)
+
+  context {
+    let start = here()
+    let sections = selector(heading).after(start)
+    let following = query(heading.where(level: 1).after(start))
+    if following.len() > 0 {
+      sections = sections.before(following.first().location())
+    }
+    outline(title: none, target: sections, depth: 3)
+  }
+
+  body
+}
+
 // Drawn as a title page because it cannot be a plain heading: every gathered
 // file sets the page so that it also compiles alone, and a set page rule issued
 // after content exists starts a new page anyway.

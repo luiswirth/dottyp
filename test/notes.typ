@@ -28,3 +28,12 @@ $ e^(ii pi) + 1 = 0, $ <euler>
 so @euler is the first number on the page.
 
 #theorem[Statements read the same way on either theme.]
+
+#show: chapter.with("A chapter and its own outline")
+
+== First section
+Reached from the outline above.
+
+== Second section
+=== A subsection
+The outline reaches this one too, and stops at the next chapter.
