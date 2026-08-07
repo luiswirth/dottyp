@@ -20,6 +20,12 @@ Roman page numbers, unnumbered headings, no chapter label.
 
 Inline #circletext[3] sits on the baseline.
 
+A #term("differential form") is set bold where it is defined, and emphasis
+carrying no definition stays #emph[italic].
+
+#key[A key sentence takes the marker color and opens with words,] since
+$integral$ inline would go unpainted.
+
 #finishline
 
 #importanteq[$ dif star dif u = f. $]
