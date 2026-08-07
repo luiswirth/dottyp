@@ -43,7 +43,6 @@
 )
 
 #let importanteq(body) = context {
-  set math.equation(numbering: "(1)")
   show math.equation: set text(fill: palette.get().emphasis)
   body
 }

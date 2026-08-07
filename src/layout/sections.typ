@@ -65,10 +65,8 @@
 
 // Not a variant of section-style: there is no chapter, no page numbering
 // scheme and no pagebreak to parameterize away.
-#let notes-style(heading-numbering: "1.1", eq-numbering: none, doc) = {
+#let notes-style(heading-numbering: "1.1", doc) = {
   set heading(numbering: heading-numbering)
-
-  set math.equation(numbering: eq-numbering)
 
   doc
 }
