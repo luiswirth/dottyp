@@ -12,10 +12,8 @@
 
 #let ketbra(a, b) = ket(a) + bra(b)
 
-// The four Green's function marks of the Keldysh formalism, superscripts on
-// whichever letter a document gives them. Upright is what the transport
-// literature draws.
+// The retarded and advanced Green's function marks of the Keldysh formalism,
+// superscripts on whichever letter a document gives them. Upright is what the
+// transport literature draws. The other two are Typst's lt and gt.
 #let ret = math.upright("R")
 #let adv = math.upright("A")
-#let lesser = math.lt
-#let greater = math.gt

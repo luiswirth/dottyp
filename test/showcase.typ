@@ -112,7 +112,7 @@
     row("ket", $ket(psi)$), row("bra", $bra(phi)$),
     row("braket", $braket(phi, psi)$), row("ketbra", $ketbra(psi, psi)$),
     row("ret", $G^ret$), row("adv", $G^adv$),
-    row("lesser", $G^lesser$), row("greater", $G^greater$),
+    row("", []), row("", []),
   ),
   // A mechanical family, so the sheet is the family itself.
   "Aliases": dictionary(aliases).pairs()
