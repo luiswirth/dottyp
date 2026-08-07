@@ -112,9 +112,10 @@ which vendors the library and makes the first commit:
     ./templates/new.sh paper ~/dev/some-paper
 
 There is `thesis` for long work split into chapters, a preface, an appendix and a bibliography,
+`book` for a document that gathers chapters and nothing else,
 `paper` for a single-file document with a title block,
-`notes` for the dark unnumbered look.
-All three keep the library at arm's length behind `src/setup.typ`,
+`notes` for a single file on the dark theme.
+All four keep the library at arm's length behind `src/setup.typ`,
 which is the one file that imports it and the one place a document says how it departs from it.
 The theme is a named variable there, so light and dark are one word apart in any of them.
 
