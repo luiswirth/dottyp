@@ -1,6 +1,7 @@
 # dottyp
 
-One Typst library for the notation and templates every document of mine uses.
+One Typst library for the notation, the templates and the conventions every
+document of mine uses.
 See the README for how it is imported and what each module carries.
 
 ## Layout
@@ -43,9 +44,14 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
   a submodule at `lib/dottyp`, and `TYPST_PACKAGE_PATH` exported by the build script
   and by the deploy workflow, so a build depends on nothing outside the checkout.
 - **The vendored copy is read-only:**
-  a change is written in the library's own checkout and pulled into the document,
-  a commit on the submodule's detached HEAD being invisible to every other document
+  a commit on its detached HEAD is invisible to every other document
   and lost at the next pin bump.
+- **Leanness is a goal, so a default beats a setting:**
+  a parameter earns its place only where two documents genuinely differ,
+  and one that nothing reads is deleted along with what it configured.
+- **Nothing institution-specific lives here:**
+  what one institution demands of a document belongs to the document that hands it in,
+  the library carrying it for every document that does not.
 
 ## Conventions
 
@@ -77,10 +83,10 @@ A document's own `CLAUDE.md` records only what departs from this.
   a display equation is numbered exactly where it carries one,
   so numbering is never a document's setting.
 - **An equation the field has named is labelled with that name as it prints,**
-  `<BTE>`, and cited through `tag-equations` rather than by number.
+  and cited through `tag-equations` rather than by number.
   Only an equation the field names, never a step of a derivation.
 - **What Typst provides is written as it stands:**
-  `planck` is already ℏ, and a document that aliases one loses the name everywhere else.
+  an alias loses the name everywhere else.
 - **`exp` wherever `e^` would set the exponent across the line.**
 - **Units are stated through `unit`, at the quantity's introduction and once,**
   and only where they are not read off the name.
