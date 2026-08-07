@@ -5,7 +5,7 @@
 #import "@local/dottyp:0.1.0": aliases, algebra, analysis, exterior, feec, fem, notation, probability, quantum, spaces, style, vector-calculus
 #import aliases: *
 
-#show: math-style.with(numbering: none)
+#show: math-style
 #set page(paper: "a4", margin: 1.5cm)
 #set text(font: "New Computer Modern Sans", size: 9pt)
 #set heading(numbering: "1.1")
@@ -111,10 +111,6 @@
     row("braket", $braket(phi, psi)$), row("ketbra", $ketbra(psi, psi)$),
     row("ret", $G^ret$), row("adv", $G^adv$),
     row("lesser", $G^lesser$), row("greater", $G^greater$),
-  ),
-  "Style": (
-    row("numeq", numeq($a^2 + b^2 = c^2$)),
-    row("", []), row("", []), row("", []),
   ),
   // A mechanical family, so the sheet is the family itself.
   "Aliases": dictionary(aliases).pairs()

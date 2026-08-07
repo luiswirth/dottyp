@@ -19,4 +19,10 @@ Inline #circletext[3] sits on the baseline. A #link("https://lwirth.com")[link].
 
 #importanteq[$ dif star dif u = f. $]
 
+An unreferenced display carries no number,
+$ a^2 + b^2 = c^2, $
+and a referenced one carries the next,
+$ e^(ii pi) + 1 = 0, $ <euler>
+so @euler is the first number on the page.
+
 #theorem[Statements read the same way on either theme.]
