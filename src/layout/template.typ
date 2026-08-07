@@ -53,6 +53,14 @@
   }
   set footnote.entry(separator: line(length: 30%, stroke: 0.5pt + colors.fg))
 
+  set outline.entry(fill: line(length: 100%, stroke: 0.2pt + colors.fg))
+
+  // A top-level entry is a heading in the outline as much as on the page, so it
+  // takes air above it and no leader across to its number.
+  show outline.entry.where(level: 1): set text(weight: "bold")
+  show outline.entry.where(level: 1): set block(above: 1.2em)
+  show outline.entry.where(level: 1): set outline.entry(fill: none)
+
   show link: set text(fill: colors.accent)
 
   show: math-style.with(font: fonts.math)
