@@ -68,6 +68,32 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 - A name standing for a bare letter is kept, `msize` and `noise`:
   it is what fixes which letter a concept owns across every document.
 
+## Writing a document
+
+What every document of mine follows, wherever the library cannot carry it itself.
+A document's own `CLAUDE.md` records only what departs from this.
+
+- **A label goes on what is cross-referenced, and an orphan is stripped:**
+  a display equation is numbered exactly where it carries one,
+  so numbering is never a document's setting.
+- **An equation the field has named is labelled with that name as it prints,**
+  `<BTE>`, and cited through `tag-equations` rather than by number.
+  Only an equation the field names, never a step of a derivation.
+- **What Typst provides is written as it stands:**
+  `planck` is already ℏ, and a document that aliases one loses the name everywhere else.
+- **`exp` wherever `e^` would set the exponent across the line.**
+- **Units are stated through `unit`, at the quantity's introduction and once,**
+  and only where they are not read off the name.
+  A value carrying its unit is `qty`, the two never interchangeable.
+- **`term` marks the defining occurrence, and bold belongs to it alone:**
+  emphasis carrying no definition is italic.
+- **`key` marks the one sentence a section has to be able to state:**
+  it opens with words, Typst's highlight leaving math unpainted.
+- **Code mode `{...}` over content mode `[...]` where the body is mostly commands,**
+  so no stray hashes.
+- **Notation general enough to outlive the document belongs here,**
+  promoted once the document has actually written it.
+
 ## Verifying
 
 Run `./test.sh` and look at the rendered pages in `out/`.
