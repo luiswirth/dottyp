@@ -21,6 +21,12 @@ A #term("cochain") is bold, and #key[a key sentence is legible on a dark page.]
 
 #importanteq[$ dif star dif u = f. $]
 
+#show: tag-equations.with(("SE",))
+
+A named equation is cited by its name,
+$ ii planck partial_t psi = op(H) psi, $ <SE>
+so @SE takes no number from the sequence.
+
 An unreferenced display carries no number,
 $ a^2 + b^2 = c^2, $
 and a referenced one carries the next,

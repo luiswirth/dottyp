@@ -12,8 +12,9 @@
 
 #let row(name, body) = (raw(name), body)
 
-// Exercised by the show rule above rather than by a row of its own.
-#let shown-elsewhere = ("math-style",)
+// Applied as a show rule, so exercised by a sheet rather than by a row of its
+// own: math-style above, tag-equations in the notes sheet.
+#let shown-elsewhere = ("math-style", "tag-equations")
 
 #let sheets = (
   "Notation": (
