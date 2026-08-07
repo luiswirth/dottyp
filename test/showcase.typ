@@ -23,7 +23,8 @@
     row("conj", $conj(z)$), row("clos", $clos(Omega)$),
     row("restr", $restr(f, s: Gamma)$), row("restr bare", $restr(f)$),
     row("transp", $amat(A)^transp$), row("herm", $amat(A)^herm$),
-    row("approxmag", $approxmag 10^(-3)$), row("", []),
+    row("approxmag", $approxmag 10^(-3)$), row("unit", $mu unit(c m^2 slash (V s))$),
+    row("qty", $qty(9.81, m slash s^2)$), row("", []),
   ),
   "Algebra": (
     row("lin", $lin(U, V)$), row("ker", $ker T$),
