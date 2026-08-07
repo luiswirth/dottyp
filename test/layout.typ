@@ -7,6 +7,8 @@
 = Preface
 Roman page numbers, unnumbered headings, no chapter label.
 
+#outline()
+
 #show: body-style
 = Sections
 == Boxes
