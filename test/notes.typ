@@ -17,6 +17,8 @@ Inline #circletext[3] sits on the baseline. A #link("https://lwirth.com")[link].
 
 #finishline
 
+A #term("cochain") is bold, and #key[a key sentence is legible on a dark page.]
+
 #importanteq[$ dif star dif u = f. $]
 
 An unreferenced display carries no number,

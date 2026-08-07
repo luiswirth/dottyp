@@ -42,6 +42,24 @@
   length: 100%,
 )
 
+// The defining occurrence of a term, and the sentence a section has to be able
+// to state. Both leave metadata, so what a document defines and what it claims
+// are queryable without parsing the source.
+//
+// A term's name is a string and never markup, so the collected vocabulary needs
+// no conversion.
+#let term(name) = {
+  metadata((kind: "term", name: name))
+  strong(name)
+}
+
+// Typst's highlight is a text decoration and leaves inline math unpainted, so a
+// key opens with words and keeps its math outside.
+#let key(body) = {
+  metadata((kind: "key", body: body))
+  context highlight(fill: palette.get().marker, body)
+}
+
 #let importanteq(body) = context {
   show math.equation: set text(fill: palette.get().emphasis)
   body
