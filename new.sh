@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# Usage: ./templates/new.sh <thesis|paper|notes> <path> [--private|--public]
+# Usage: ./new.sh <path> [--private|--public]
 #
 # A Pages site is public either way, so --private hides the sources and
 # publishes the PDF.
@@ -7,15 +7,14 @@
 set -e
 
 usage() {
-  echo "usage: $0 <thesis|paper|notes> <path> [--private|--public]" >&2
+  echo "usage: $0 <path> [--private|--public]" >&2
   exit 1
 }
 
 here=$(dirname "$0")
-kind=$1
-dest=$2
-visibility=$3
-[ -d "$here/$kind" ] && [ -n "$dest" ] || usage
+dest=$1
+visibility=$2
+[ -n "$dest" ] || usage
 case "$visibility" in
   "" | --private | --public) ;;
   *) usage ;;
@@ -26,7 +25,7 @@ if [ -e "$dest" ]; then
 fi
 
 mkdir -p "$dest"
-git -C "$here" archive HEAD "$kind" | tar -x --strip-components=1 -C "$dest"
+git -C "$here" archive HEAD template | tar -x --strip-components=1 -C "$dest"
 
 cd "$dest"
 name=$(basename "$PWD")
@@ -41,7 +40,7 @@ chmod +x build.sh watch.sh
 git init -q
 git submodule add -q https://github.com/luiswirth/dottyp lib/dottyp
 git add -A
-git commit -qm "start from the dottyp $kind template"
+git commit -qm "start from the dottyp template"
 
 ./build.sh
 
