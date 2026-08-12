@@ -13,8 +13,9 @@
 #let row(name, body) = (raw(name), body)
 
 // Applied as a show rule, so exercised by a sheet rather than by a row of its
-// own: math-style above, tag-equations in the notes sheet.
-#let shown-elsewhere = ("math-style", "tag-equations")
+// own: math-style above, the tagging in the notes sheet, and `tag-by` through
+// the two entry points that call it.
+#let shown-elsewhere = ("math-style", "tag-by", "tag-equations", "tag-symbols")
 
 #let sheets = (
   "Notation": (
