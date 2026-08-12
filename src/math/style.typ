@@ -42,18 +42,14 @@
 // name of a label being what `tag` returns for it.
 //
 // The tag is set on the equation rather than drawn onto it, which leaves the
-// reference to Typst. One rule reaches one label, hence the fold.
+// reference to Typst. One rule reaches one label, so the rules nest, and the
+// nest is accumulated rather than recursed into: a frame per name exhausts the
+// call depth at the sixty-fourth equation.
 #let tag-by(names, tag, body) = {
-  let fold(names, body) = {
-    if names.len() == 0 { return body }
-    let name = names.first()
-    [
-      #show label(name): set math.equation(numbering: _ => tag(name))
-      #fold(names.slice(1), body)
-    ]
-  }
-
-  fold(names, body)
+  names.fold(body, (tagged, name) => [
+    #show label(name): set math.equation(numbering: _ => tag(name))
+    #tagged
+  ])
 
   // A tag names a label living elsewhere, the one thing here that can silently
   // fall apart.
