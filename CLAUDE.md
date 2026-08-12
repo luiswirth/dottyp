@@ -85,11 +85,13 @@ What every document of mine follows, wherever the library cannot carry it itself
 A document's own `CLAUDE.md` records only what departs from this.
 
 - **A label goes on what is cross-referenced, and an orphan is stripped:**
-  a display equation is numbered exactly where it carries one,
+  a display equation is named exactly where it carries one,
   so numbering is never a document's setting.
-- **An equation the field has named is labelled with that name as it prints,**
-  and cited through `tag-equations` rather than by number.
-  Only an equation the field names, never a step of a derivation.
+- **An equation is cited by a name, never by a number:**
+  a name a reader recognizes without turning back,
+  the math symbol it defines or the abbreviation the field already uses,
+  and the Typst label is spelled as the name prints wherever it can be.
+  The prose names what each reference points at, so nothing has to be looked up to read on.
 - **What Typst provides is written as it stands:**
   an alias loses the name everywhere else.
 - **`exp` wherever `e^` would set the exponent across the line.**
