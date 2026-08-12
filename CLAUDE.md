@@ -1,6 +1,6 @@
 # dottyp
 
-One Typst library for the notation, the templates and the conventions every
+One Typst library for the notation, the template and the conventions every
 document of mine uses.
 See the README for how it is imported and what each module carries.
 
@@ -16,8 +16,10 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
   glob-reexports both halves and exposes each module as a named handle.
 - `test/`:
   one file per half, plus the dark variant, compiled and looked at.
-- `templates/`:
-  one starting point per kind of document, copied out to become a repo of its own.
+- `template/`:
+  the single starting point, copied out by `new.sh` to become a repo of its own.
+  It carries the scaffolding and a minimal body, the kind of document being what
+  the copy specializes itself into out of the blocks this library exports.
 
 ## Invariants
 
@@ -43,6 +45,9 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 - **A document vendors the library, never a path in its environment:**
   a submodule at `lib/dottyp`, and `TYPST_PACKAGE_PATH` exported by the build script
   and by the deploy workflow, so a build depends on nothing outside the checkout.
+- **The toolchain is declared by the checkout as the library is:**
+  a flake devShell, entered by direnv interactively and by the build script itself
+  otherwise, since a non-interactive shell loads no direnv.
 - **The vendored copy is read-only:**
   a commit on its detached HEAD is invisible to every other document
   and lost at the next pin bump.
@@ -107,8 +112,8 @@ Never assert that a change renders.
 The showcase checks itself against the modules, so a new export must be added there,
 but that only proves the name exists.
 
-A template is verified by its own `build.sh`,
-which needs the library vendored at `lib/dottyp` as `templates/new.sh` puts it there.
+The template is verified by its own `build.sh`,
+which needs the library vendored at `lib/dottyp` as `new.sh` puts it there.
 
 ## Typst 0.15
 
