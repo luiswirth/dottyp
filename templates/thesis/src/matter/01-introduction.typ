@@ -1,3 +1,0 @@
-#import "../setup.typ": *
-
-= Introduction

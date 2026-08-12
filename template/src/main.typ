@@ -7,6 +7,4 @@
   #author
 ]
 
-= Introduction
-
-#bibliography("bibliography.bib", style: "chicago-author-date")
+= Section

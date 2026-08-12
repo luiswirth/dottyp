@@ -103,24 +103,29 @@ Unary operators such as the Hodge star and the musical isomorphisms
 are declared with `math.class` so they bind to their argument rather than taking operator spacing.
 Symbols are taken from `sym`, and only functions from `math`.
 
-## Templates
+## Template
 
-`templates/` holds one starting point per kind of document,
-each a repo of its own once copied out by `templates/new.sh`,
+`template/` is the one starting point every document begins from,
+a repo of its own once copied out by `new.sh`,
 which vendors the library and makes the first commit:
 
-    ./templates/new.sh paper ~/dev/some-paper
+    ./new.sh ~/dev/some-paper
 
-There is `thesis` for long work split into chapters, a preface, an appendix and a bibliography,
-`book` for a document that gathers chapters and nothing else,
-`paper` for a single-file document with a title block,
-`notes` for a single file on the dark theme.
-All four keep the library at arm's length behind `src/setup.typ`,
+It carries a title block and a single section, and nothing that presumes a kind of document.
+A thesis, a book or a set of notes is what the copy grows into,
+by composing the blocks the library exports: `chapter` and `area` for the parts,
+`preface-style` and its siblings for the matter of a thesis,
+`notes-document` in place of `article-document` for the notes layout.
+
+The library is kept at arm's length behind `src/setup.typ`,
 which is the one file that imports it and the one place a document says how it departs from it.
-The theme is a named variable there, so light and dark are one word apart in any of them.
+The theme is a named variable there, so light and dark are one word apart.
 
-Each carries a `build.sh` and a `watch.sh` writing to `out/`,
-and the GitHub workflow that deploys the compiled PDF to Pages
+A `flake.nix` declares the toolchain and an `.envrc` enters it,
+so a checkout brings its own Typst as it brings its own library.
+The `build.sh` and `watch.sh` writing to `out/` enter the shell themselves
+where direnv has not, which is every non-interactive one.
+The GitHub workflow deploys the compiled PDF to Pages
 through [typst-deploy](https://github.com/luiswirth/typst-deploy),
 which is told where the vendored library sits and needs nothing else.
 The document is published under the name of its repository.
@@ -128,7 +133,7 @@ The document is published under the name of its repository.
 Deploying takes a remote with Pages enabled, which `new.sh` creates
 once it is told how the repository is to be visible:
 
-    ./templates/new.sh paper ~/dev/some-paper --private
+    ./new.sh ~/dev/some-paper --private
 
 Read that flag as covering the sources alone.
 A Pages site is public whatever its repository is,
