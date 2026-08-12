@@ -38,19 +38,17 @@
   doc
 }
 
-// An equation the field has named is cited by that name, at the display and at
-// every reference. Its label is spelled as the tag prints, so the two cannot
-// drift apart.
+// An equation is cited by a name, at the display and at every reference, the
+// name of a label being what `tag` returns for it.
 //
 // The tag is set on the equation rather than drawn onto it, which leaves the
 // reference to Typst. One rule reaches one label, hence the fold.
-#let tag-equations(names, body) = {
+#let tag-by(names, tag, body) = {
   let fold(names, body) = {
     if names.len() == 0 { return body }
+    let name = names.first()
     [
-      #show label(names.first()): set math.equation(
-        numbering: _ => "(" + names.first() + ")",
-      )
+      #show label(name): set math.equation(numbering: _ => tag(name))
       #fold(names.slice(1), body)
     ]
   }
@@ -61,6 +59,17 @@
   // fall apart.
   context assert(
     names.all(name => query(label(name)).len() > 0),
-    message: "tag-equations names an equation that does not exist",
+    message: "a tag names an equation that does not exist",
   )
 }
+
+// A name a label can spell is spelled by it, so the two cannot drift apart.
+#let tag-equations(names, body) = tag-by(names, name => "(" + name + ")", body)
+
+// A name a label cannot spell, a math symbol above all, is joined to its label
+// by the map instead.
+#let tag-symbols(symbols, body) = tag-by(
+  symbols.keys(),
+  name => [(#symbols.at(name))],
+  body,
+)

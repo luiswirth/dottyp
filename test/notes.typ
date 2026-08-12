@@ -22,10 +22,14 @@ A #term("cochain") is bold, and #key[a key sentence is legible on a dark page.]
 #importanteq[$ dif star dif u = f. $]
 
 #show: tag-equations.with(("SE",))
+#show: tag-symbols.with(("gauss": $rho$))
 
 A named equation is cited by its name,
 $ ii planck partial_t psi = op(H) psi, $ <SE>
-so @SE takes no number from the sequence.
+so @SE takes no number from the sequence,
+and one defining a quantity is cited by that symbol,
+$ div avec(D) = rho, $ <gauss>
+so @gauss reads without a lookup.
 
 An unreferenced display carries no number,
 $ a^2 + b^2 = c^2, $
