@@ -12,10 +12,9 @@ permissions:
 
 jobs:
   deploy:
-    uses: luiswirth/typst-deploy/.github/workflows/typst-deploy.yml@v2
+    uses: luiswirth/typst-deploy/.github/workflows/typst-deploy.yml@v3
     with:
       documents: |
         test/showcase.typ
         test/layout.typ
         test/notes.typ
-      package_path: pkg
