@@ -1,7 +1,12 @@
 #!/usr/bin/env sh
 
 set -e
-export TYPST_PACKAGE_PATH="$PWD/pkg"
+cd "$(dirname "$0")"
+self="$PWD/$(basename "$0")"
+# The package root comes from the flake, so the environment is what a
+# compile needs and not merely the binary.
+[ -n "$TYPST_PACKAGE_PATH" ] || exec nix develop --command "$self" "$@"
+
 mkdir -p out
 
 for file in test/*.typ; do
