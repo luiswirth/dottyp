@@ -1,12 +1,32 @@
 {
   "nodes": {
+    "dottyp": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786547531,
+        "narHash": "sha256-WjnGR1jsOHKfi0H5OjEmRPKZZDCxgemLTgpfzS7Y5nY=",
+        "owner": "luiswirth",
+        "repo": "dottyp",
+        "rev": "08d1e28a327079845dcaf2ae638b99e1cc89e2fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "luiswirth",
+        "repo": "dottyp",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1786106723,
-        "narHash": "sha256-zDSUbpoeo/9ZmD2+wXnzxoo1+uhL8vxc0b8yuYMKYq0=",
+        "lastModified": 1787135253,
+        "narHash": "sha256-RD2kNWCG+Bjo6h+JVjWVNntZs2GtRoeY2xHjts/FNkA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f13ff45afd1bb73e640eaa08a7066dbed07e3238",
+        "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
         "type": "github"
       },
       "original": {
@@ -18,6 +38,7 @@
     },
     "root": {
       "inputs": {
+        "dottyp": "dottyp",
         "nixpkgs": "nixpkgs"
       }
     }
