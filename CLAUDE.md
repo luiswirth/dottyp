@@ -42,15 +42,15 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 - **Never duplicate setup in a document that can be done here:**
   a document declares its choices, and dottyp carries everything else.
 - **`@preview/ctheorems` is the only external dependency.**
-- **A document vendors the library, never a path in its environment:**
-  a submodule at `lib/dottyp`, and `TYPST_PACKAGE_PATH` exported by the build script
-  and by the deploy workflow, so a build depends on nothing outside the checkout.
+- **A document takes the library as a flake input, never a path in its environment:**
+  `flake.lock` pins the revision and the devShell exports `TYPST_PACKAGE_PATH`,
+  so a build depends on nothing outside the checkout and its lock.
 - **The toolchain is declared by the checkout as the library is:**
   a flake devShell, entered by direnv interactively and by the build script itself
   otherwise, since a non-interactive shell loads no direnv.
-- **The vendored copy is read-only:**
-  a commit on its detached HEAD is invisible to every other document
-  and lost at the next pin bump.
+- **The pinned copy is read-only, lying in the Nix store:**
+  the library is edited in its own checkout,
+  which a document reaches with `--override-input` while the lock stays as it is.
 - **Leanness is a goal, so a default beats a setting:**
   a parameter earns its place only where two documents genuinely differ,
   and one that nothing reads is deleted along with what it configured.
@@ -115,7 +115,7 @@ The showcase checks itself against the modules, so a new export must be added th
 but that only proves the name exists.
 
 The template is verified by its own `build.sh`,
-which needs the library vendored at `lib/dottyp` as `new.sh` puts it there.
+which enters the flake when the environment is not there already.
 
 ## Typst 0.15
 
