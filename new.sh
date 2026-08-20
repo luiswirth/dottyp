@@ -38,7 +38,6 @@ done
 chmod +x build.sh watch.sh
 
 git init -q
-git submodule add -q https://github.com/luiswirth/dottyp lib/dottyp
 git add -A
 git commit -qm "start from the dottyp template"
 

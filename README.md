@@ -5,11 +5,15 @@ replacing the `math.typ` copies that had drifted apart in each project.
 
 ## Use
 
-A document vendors the library as a submodule and points Typst at it:
+A document takes the library as a flake input and points Typst at it from its devShell:
 
-```bash
-git submodule add https://github.com/luiswirth/dottyp lib/dottyp
-export TYPST_PACKAGE_PATH=$PWD/lib/dottyp/pkg
+```nix
+inputs.dottyp.url = "github:luiswirth/dottyp";
+
+devShells.default = pkgs.mkShell {
+  packages = with pkgs; [typst tinymist];
+  TYPST_PACKAGE_PATH = "${dottyp}/pkg";
+};
 ```
 
 ```typst
@@ -20,13 +24,14 @@ The repo is its own package root:
 `pkg/local/dottyp/0.1.0` is a symlink back to the top level,
 which is the directory shape Typst's local package namespace expects.
 
-Vendoring is what makes a document build anywhere,
+The input is what makes a document build anywhere,
 on a machine that has never seen this repo and in CI,
-and what pins each document to the commit of the library it was written against.
-The `build.sh` of a document exports the variable itself,
-so nothing is expected of the environment.
-Picking up a change to the library is `git -C lib/dottyp pull` and a commit in the document.
-Publishing to Typst Universe would replace the submodule and the variable, not the imports.
+and `flake.lock` is what pins each document to the revision of the library
+it was written against.
+Picking up a change is `nix flake update dottyp` and a commit in the document.
+Editing library and document at once is
+`nix develop --override-input dottyp ~/dev/dottyp`, which leaves the lock alone.
+Publishing to Typst Universe would replace the input and the variable, not the imports.
 
 No name is defined twice across the modules,
 so the glob import is unambiguous and a name means one thing wherever it is read.
