@@ -109,13 +109,14 @@ A document's own `CLAUDE.md` records only what departs from this.
 
 ## Verifying
 
-Run `./test.sh` and look at the rendered pages in `out/`.
+Run `nix run .#ci`, which checks that every test file compiles, and look at a
+page with `nix run .#watch -- layout`.
 Never assert that a change renders.
 The showcase checks itself against the modules, so a new export must be added there,
 but that only proves the name exists.
 
-The template is verified by its own `build.sh`,
-which enters the flake when the environment is not there already.
+The template is verified by its own `nix run .#ci`,
+which carries the flake rather than expecting the environment to be there.
 
 ## Typst 0.15
 
