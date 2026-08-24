@@ -30,18 +30,16 @@ git -C "$here" archive HEAD template | tar -x --strip-components=1 -C "$dest"
 cd "$dest"
 name=$(basename "$PWD")
 
-for file in build.sh watch.sh .github/workflows/typst-deploy.yml; do
+for file in flake.nix .github/workflows/typst-deploy.yml; do
   sed "s|document\.pdf|$name.pdf|" "$file" > "$file.new"
   mv "$file.new" "$file"
 done
-# sed and mv drop the executable bit.
-chmod +x build.sh watch.sh
 
 git init -q
 git add -A
 git commit -qm "start from the dottyp template"
 
-./build.sh
+nix run .#build
 
 if [ -n "$visibility" ]; then
   gh repo create "$name" "$visibility" --source=. --remote=origin --push
