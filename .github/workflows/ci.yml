@@ -23,6 +23,11 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: DeterminateSystems/nix-installer-action@main
+      # The store closure comes from the GitHub Actions cache. FlakeHub is a
+      # paid service and is off, which it otherwise reports as a failed login.
       - uses: DeterminateSystems/magic-nix-cache-action@main
+        with:
+          use-gha-cache: enabled
+          use-flakehub: disabled
       - run: nix flake check
       - run: nix run .#ci
