@@ -15,8 +15,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-# The flake owns what is checked, so this file never learns a language. What
-# runs here is what `nix run .#ci` runs on your machine.
+# The justfile owns what is checked and the flake owns what it runs in, so
+# this file never learns a language. What runs here is what `just ci` runs on
+# your machine.
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -30,4 +31,4 @@ jobs:
           use-gha-cache: enabled
           use-flakehub: disabled
       - run: nix flake check
-      - run: nix run .#ci
+      - run: nix develop -c just ci

@@ -128,8 +128,8 @@ The theme is a named variable there, so light and dark are one word apart.
 
 A `flake.nix` declares the toolchain and an `.envrc` enters it,
 so a checkout brings its own Typst as it brings its own library.
-`nix run .#build` and `nix run .#watch` write to `out/` and carry the shell
-with them, so neither depends on direnv having entered it.
+A `justfile` holds the commands, `just build` and `just watch` writing to `out/`,
+so the flake says what they run in and the justfile says what they are.
 The GitHub workflow deploys the compiled PDF to Pages
 through [typst-deploy](https://github.com/luiswirth/typst-deploy),
 which is told where the vendored library sits and needs nothing else.
@@ -154,8 +154,8 @@ so an export that is not shown, and a name shown that no longer exists, both fai
 What that cannot check is how a definition renders,
 so this is how a change is checked: compile them and look at the pages.
 
-    nix run .#ci               checks that every test file compiles
-    nix run .#watch -- layout  watches one of them, in out/
+    just ci             checks that every test file compiles
+    just watch layout   watches one of them, in out/
 
 The same three are what this repository deploys,
 so the rendered pages of the current commit are listed at
