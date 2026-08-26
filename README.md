@@ -64,6 +64,7 @@ Two halves.
 | `theme` | the colors a document is drawn in, as `light-theme` and `dark-theme` |
 | `template` | `document-style`, the page and text a document is set on |
 | `sections` | `section-style` and its preface/body/appendix/postface presets, plus `notes-style` |
+| `documents` | the shapes a document takes: `article-document`, `thesis-document`, `notes-document`, and `title-page` |
 | `blocks` | titled panels, framed blocks, circled text, rules, called-out equations |
 | `theorems` | theorem environments on `@preview/ctheorems`, the one external dependency |
 
@@ -76,11 +77,10 @@ which is fine in a document that wants them and a disaster in one that does not.
 #import aliases: *
 ```
 
-A document turns on the layout it wants, and a thesis switches style between its parts:
+A document takes a shape, and a thesis switches style between its parts:
 
 ```typst
-#show: document-style
-#show: thmrules
+#show: thesis-document.with(title: "...", author: "...")
 
 #show: preface-style
 = Acknowledgments
