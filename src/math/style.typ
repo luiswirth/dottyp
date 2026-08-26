@@ -1,4 +1,6 @@
-#let math-style(font: "New Computer Modern Math", doc) = {
+// number-unlabelled numbers every display, which is what a thesis does; an
+// article numbers the displays it refers back to and leaves the rest clean.
+#let math-style(font: "New Computer Modern Math", number-unlabelled: false, doc) = {
   show math.equation: set text(font: font)
   set math.mat(delim: "[")
   set math.vec(delim: "[")
@@ -13,7 +15,7 @@
       // Tagged, so it prints its name and takes no number with it.
       it
       counter(math.equation).update(n => n - 1)
-    } else if it.has("label") {
+    } else if number-unlabelled or it.has("label") {
       it
     } else {
       math.equation(block: true, numbering: none, it.body)

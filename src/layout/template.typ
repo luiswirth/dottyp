@@ -17,6 +17,7 @@
   size: 12pt,
   justify: false,
   leading: 0.65em,
+  number-unlabelled: false,
   doc,
 ) = {
   palette.update(colors)
@@ -53,6 +54,9 @@
   }
   set footnote.entry(separator: line(length: 30%, stroke: 0.5pt + colors.fg))
 
+  // The outline lists itself, the way the other front-matter parts are listed.
+  show outline: set heading(outlined: true)
+
   set outline.entry(fill: line(length: 100%, stroke: 0.2pt + colors.fg))
 
   show outline.entry.where(level: 1): set text(weight: "bold")
@@ -61,7 +65,7 @@
 
   show link: set text(fill: colors.accent)
 
-  show: math-style.with(font: fonts.math)
+  show: math-style.with(font: fonts.math, number-unlabelled: number-unlabelled)
 
   doc
 }
