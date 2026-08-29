@@ -82,7 +82,7 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
 ## Writing a document
 
 What every document of mine follows, wherever the library cannot carry it itself.
-A document's own `CLAUDE.md` records only what departs from this.
+A document's own `AGENTS.md` records only what departs from this.
 
 - **A label goes on what is cross-referenced, and an orphan is stripped:**
   a display equation is named exactly where it carries one,
