@@ -98,10 +98,8 @@ A document's own `AGENTS.md` records only what departs from this.
 - **Units are stated through `unit`, at the quantity's introduction and once,**
   and only where they are not read off the name.
   A value carrying its unit is `qty`, the two never interchangeable.
-- **`term` marks the defining occurrence, and bold belongs to it alone:**
-  emphasis carrying no definition is italic.
-- **`key` marks the one sentence a section has to be able to state:**
-  it opens with words, Typst's highlight leaving math unpainted.
+- **Bold marks a keyword at its first occurrence and nowhere else:**
+  any other emphasis is italic.
 - **Code mode `{...}` over content mode `[...]` where the body is mostly commands,**
   so no stray hashes.
 - **Notation general enough to outlive the document belongs here,**
