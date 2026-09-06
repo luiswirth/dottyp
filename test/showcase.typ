@@ -67,8 +67,7 @@
   ),
   "Exterior calculus": (
     row("wedge", $alpha wedge beta$), row("bigwedge", $bigwedge^k V$),
-    row("extpow", $extpow(k, V)$), row("altpow", $altpow(k, V)$),
-    row("alt", $alt(V)$), row("dif", $dif omega$),
+    row("alt", $alt^k (V)$), row("dif", $dif omega$),
     row("codif", $codif omega$), row("hodge", $hodge omega$),
     row("sharp", $alpha^sharp$), row("flat", $avec(v)^flat$),
     row("intprod", $intprod_avec(v) omega$), row("lie", $lie_avec(v) omega$),

@@ -34,7 +34,7 @@ $integral$ inline would go unpainted.
 
 == Theorem environments
 
-#definition[A #emph[form] is a section of $altpow(k, T^* M)$.]
+#definition[A #emph[form] is a section of $alt^k (T^* M)$.]
 
 #theorem[Stokes][
   $ integral_(partial M) pullback(iota) omega = integral_M dif omega. $
