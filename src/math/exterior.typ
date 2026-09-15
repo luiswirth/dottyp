@@ -13,6 +13,7 @@
 #let sharp = math.class("unary", sym.sharp)
 #let flat = math.class("unary", sym.flat)
 
+#let extprod = math.class("unary", sym.epsilon)
 #let intprod = math.class("unary", sym.iota)
 #let lie = math.cal("L")
 
