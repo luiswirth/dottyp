@@ -1,6 +1,7 @@
 #import "notation.typ": *
 
 #let lin = math.op("Lin")
+#let Id = math.op("Id")
 #let ker = math.op("ker")
 #let im = math.op("im")
 #let rank = math.op("rank")
