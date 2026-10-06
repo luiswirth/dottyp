@@ -156,7 +156,3 @@ so this is how a change is checked: compile them and look at the pages.
 
     just ci             checks that every test file compiles
     just watch layout   watches one of them, in out/
-
-The same three are what this repository deploys,
-so the rendered pages of the current commit are listed at
-<https://lwirth.com/dottyp/>.
