@@ -12,8 +12,11 @@ Two halves, and nothing crosses between them except that `layout` may use `math`
   the notation a document writes.
 - `src/layout/`:
   the shape it is written in.
+- `src/math.typ`:
+  glob-reexports the math half and exposes each of its modules as a named handle,
+  for a reader that wants only the notation.
 - `src/lib.typ`:
-  glob-reexports both halves and exposes each module as a named handle.
+  glob-reexports both halves, the math half through `math.typ`, and exposes each module as a named handle.
 - `test/`:
   one file per half, plus the dark variant, compiled and looked at.
 - `template/`:
