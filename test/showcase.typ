@@ -39,6 +39,7 @@
     row("innerlines", $innerlines(u, v)$), row("commutator", $commutator(amat(A), amat(B))$),
     row("anticommutator", $anticommutator(amat(A), amat(B))$), row("tprod", $U tprod V$),
     row("dsum", $U dsum V$), row("bigdsum", $bigdsum_(k) V_k$),
+    row("Id", $Id_V$), row("", []),
   ),
   "Analysis": (
     row("oo", $oo(a, b)$), row("cc", $cc(a, b)$),
@@ -72,7 +73,7 @@
     row("sharp", $alpha^sharp$), row("flat", $avec(v)^flat$),
     row("intprod", $intprod_avec(v) omega$), row("lie", $lie_avec(v) omega$),
     row("pullback", $pullback(phi) omega$), row("pushforward", $pushforward(phi) avec(v)$),
-    row("vol", $vol(Omega)$), row("", []),
+    row("vol", $vol(Omega)$), row("extprod", $extprod_alpha omega$),
   ),
   "Finite elements": (
     row("mesh", $mesh$), row("nodes", $nodes$),
