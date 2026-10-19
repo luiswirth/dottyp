@@ -25,7 +25,7 @@ The repo is its own package root:
 which is the directory shape Typst's local package namespace expects.
 
 The input is what makes a document build anywhere,
-on a machine that has never seen this repo and in CI,
+on a machine that has never seen this repo,
 and `flake.lock` is what pins each document to the revision of the library
 it was written against.
 Picking up a change is `nix flake update dottyp` and a commit in the document.

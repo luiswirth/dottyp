@@ -2,6 +2,7 @@
 ci:
     #!/usr/bin/env sh
     set -e
+    nix flake check
     nix fmt -- --ci
     pdfs="$(mktemp -d)"
     trap 'rm -rf "$pdfs"' EXIT
