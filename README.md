@@ -130,18 +130,18 @@ A `flake.nix` declares the toolchain and an `.envrc` enters it,
 so a checkout brings its own Typst as it brings its own library.
 A `justfile` holds the commands, `just build` and `just watch` writing to `out/`,
 so the flake says what they run in and the justfile says what they are.
-The GitHub workflow deploys the compiled PDF to Pages
+The GitHub workflow deploys the compiled PDF to a Cloudflare Worker
 through [typst-deploy](https://github.com/luiswirth/typst-deploy),
 which is told where the vendored library sits and needs nothing else.
 The document is published under the name of its repository.
 
-Deploying takes a remote with Pages enabled, which `new.sh` creates
+Deploying takes a remote holding the Cloudflare secrets, which `new.sh` creates
 once it is told how the repository is to be visible:
 
     ./new.sh ~/dev/some-paper --private
 
 Read that flag as covering the sources alone.
-A Pages site is public whatever its repository is,
+The deployed site is public whatever its repository is,
 so `--private` publishes the PDF and hides what it was built from.
 
 ## Test

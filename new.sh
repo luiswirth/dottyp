@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # Usage: ./new.sh <path> [--private|--public]
 #
-# A Pages site is public either way, so --private hides the sources and
+# The deployed site is public either way, so --private hides the sources and
 # publishes the PDF.
 
 set -e
@@ -42,9 +42,11 @@ git commit -qm "start from the dottyp template"
 nix develop --command just build
 
 if [ -n "$visibility" ]; then
-  gh repo create "$name" "$visibility" --source=. --remote=origin --push
-  # Pages has to exist before the first run, which has nothing to deploy to
-  # otherwise.
-  slug=$(gh repo view --json nameWithOwner -q .nameWithOwner)
-  gh api -X POST "repos/$slug/pages" -f build_type=workflow >/dev/null
+  gh repo create "$name" "$visibility" --source=. --remote=origin
+  # The deploy authenticates with these, so they exist before the first push.
+  gh secret set CLOUDFLARE_API_TOKEN < ~/secrets/cloudflare-ci-token.txt
+  gh secret set CLOUDFLARE_ACCOUNT_ID --body "$(curl -s \
+    -H "Authorization: Bearer $(cat ~/secrets/cloudflare-api-token.txt)" \
+    https://api.cloudflare.com/client/v4/accounts | jq -r '.result[0].id')"
+  git push -u origin HEAD
 fi
