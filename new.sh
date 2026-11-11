@@ -45,8 +45,11 @@ if [ -n "$visibility" ]; then
   gh repo create "$name" "$visibility" --source=. --remote=origin
   # The deploy authenticates with these, so they exist before the first push.
   gh secret set CLOUDFLARE_API_TOKEN < ~/secrets/cloudflare-ci-token.txt
-  gh secret set CLOUDFLARE_ACCOUNT_ID --body "$(curl -s \
+  # The token reaches other people's accounts too, so pick mine by name.
+  account_id=$(curl -s \
     -H "Authorization: Bearer $(cat ~/secrets/cloudflare-api-token.txt)" \
-    https://api.cloudflare.com/client/v4/accounts | jq -r '.result[0].id')"
+    https://api.cloudflare.com/client/v4/accounts |
+    jq -er '.result[] | select(.name == "luiswirth") | .id')
+  gh secret set CLOUDFLARE_ACCOUNT_ID --body "$account_id"
   git push -u origin HEAD
 fi
